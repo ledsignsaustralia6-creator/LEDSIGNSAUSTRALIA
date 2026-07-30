@@ -648,3 +648,158 @@ DETAILS OF BUTTON FOR HIDING
 #imageModal .close-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
+
+/* ============================
+   MOBILE RESPONSIVE STYLES
+   ============================ */
+
+/* Hamburger icon - hidden on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #000000;
+    border-radius: 2px;
+}
+
+@media (max-width: 900px) {
+
+    /* Header / Navigation */
+    .header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        order: 3;
+        margin-top: 15px;
+    }
+
+    nav.nav-open {
+        display: flex;
+    }
+
+    nav a {
+        margin: 10px 0;
+        padding: 8px 0;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+    .header .quote-btn {
+        margin-left: auto;
+        margin-right: 15px;
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .trust-line {
+        font-size: 12px;
+    }
+
+    .page-hero h1 {
+        font-size: 28px;
+    }
+
+    /* Process section */
+    .process {
+        flex-direction: column;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .process-header {
+        flex: none;
+    }
+
+    .process-header h2,
+    .process-header p {
+        padding-left: 0;
+        text-align: center;
+        margin: 0 auto 10px auto;
+    }
+
+    .process-flow {
+        justify-content: center;
+    }
+
+    .process-card {
+        width: 130px;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    /* About stats */
+    .about-stats {
+        flex-direction: column;
+    }
+
+    /* Service detail cards */
+    .service-detail-card {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Modal box */
+    .modal-box {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .process-flow {
+        flex-direction: column;
+    }
+
+    .process-card {
+        width: 100%;
+    }
+
+    .gallery-item img,
+    .project-item img {
+        height: 180px;
+    }
+
+    .final-cta h2 {
+        font-size: 24px;
+    }
+}

@@ -2,12 +2,16 @@
 <html>
 <head>
     <title>About Us - LED SIGNS AUSTRALIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
         <div class="logo">LED SIGNS AUSTRALIA</div>
-        <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="navMenu">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -121,5 +125,6 @@
         <h2>Ready to Upgrade Your Business Sign?</h2>
         <a href="mailto:info@ledsignsaustralia.com.au" class="quote-btn">Request a Free Quote</a>
     </section>
+    <script src="mobile-menu.js"></script>
 </body>
 </html>
