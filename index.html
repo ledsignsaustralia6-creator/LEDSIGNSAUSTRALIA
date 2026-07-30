@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LED SIGNS AUSTRALIA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LED SIGNS AUSTRALIA</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="quote-btn">Get Free Quote</a>
+    </header>
+
+    <section class="hero">
+        <h1>Creating High-Impact Signs That Make Your Brand Visible</h1>
+        <p>We design, manufacture and install custom signage solutions for businesses.</p>
+        <a href="mailto:info@ledsignsaustralia.com.au" class="quote-btn">Get Free Quote</a>
+        <p class="trust-line">✔ Quality Materials &nbsp; | &nbsp; ✔ Custom Design &nbsp; | &nbsp; ✔ On-Time Installation &nbsp; | &nbsp; ✔ Professional Service</p>
+    </section>
+
+    <section class="process">
+        <div class="process-header">
+            <h2>Our<br>Process</h2>
+            <p>From first consultation to final installation — here's how we bring your sign to life.</p>
+        </div>
+        <div class="process-flow">
+            <div class="process-card" onclick="openProcess(1)">
+                <div class="process-number">01</div>
+                <h3>Consultation</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="arrow">➜</div>
+            <div class="process-card" onclick="openProcess(2)">
+                <div class="process-number">02</div>
+                <h3>Design</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="arrow">➜</div>
+            <div class="process-card" onclick="openProcess(3)">
+                <div class="process-number">03</div>
+                <h3>Manufacturing</h3>
+                <p>Click to view details</p>
+            </div>
+            <div class="arrow">➜</div>
+            <div class="process-card" onclick="openProcess(4)">
+                <div class="process-number">04</div>
+                <h3>Installation</h3>
+                <p>Click to view details</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div class="modal-overlay" id="processModal">
+        <div class="modal-box">
+            <span class="modal-close" onclick="closeProcess()">&times;</span>
+            <div class="modal-number" id="modalNumber"></div>
+            <h3 id="modalTitle"></h3>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <section class="about-intro">
+        <h2>About LED SIGNS AUSTRALIA</h2>
+        <p>We are a trusted signage company dedicated to helping businesses stand out with high-quality, custom-designed signs. From concept to installation, our experienced team delivers professional results every time.</p>
+        <a href="about.html" class="view-btn">Read More</a>
+    </section>
+
+    <section class="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/work1.jpg" alt="Shop Sign Project">
+                <p>Shop Front Sign</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/work2.jpg" alt="LED Sign Project">
+                <p>LED Illuminated Sign</p>
+            </div>
+            <div class="gallery-item">
+                <img src="images/work3.jpg" alt="Pylon Sign Project">
+                <p>Pylon Sign</p>
+            </div>
+        </div>
+        <a href="projects.html" class="view-btn">View All Projects</a>
+    </section>
+
+    <section class="services">
+        <h2>Our Signage Solutions</h2>
+        <div class="services-grid">
+            <div class="service-card">3D Illuminated Letters</div>
+            <div class="service-card">LED Signs</div>
+            <div class="service-card">Pylon Signs</div>
+            <div class="service-card">Shop Front Signs</div>
+            <div class="service-card">Vehicle Branding</div>
+            <div class="service-card">Graphic Design</div>
+        </div>
+        <a href="services.html" class="view-btn">View Our Services</a>
+    </section>
+
+    <section class="final-cta">
+        <h2>Ready to Upgrade Your Business Sign?</h2>
+        <a href="contact.html" class="quote-btn">Request a Free Quote</a>
+    </section>
+    <script>
+        const processData = {
+            1: {
+                title: "Consultation",
+                text: "We start by understanding your business, brand, and signage needs. We discuss your goals, budget, and site requirements to plan the perfect solution."
+            },
+            2: {
+                title: "Design",
+                text: "Our design team creates custom sign concepts tailored to your brand identity. We refine the design with you until it's exactly what you envisioned."
+            },
+            3: {
+                title: "Manufacturing",
+                text: "Using high-quality materials and modern equipment, we manufacture your sign with precision, ensuring durability and a premium finish."
+            },
+            4: {
+                title: "Installation",
+                text: "Our professional installation team sets up your sign safely and efficiently, making sure it looks perfect and complies with all safety standards."
+            }
+        };
+
+        function openProcess(id) {
+            document.getElementById("modalNumber").innerText = "0" + id;
+            document.getElementById("modalTitle").innerText = processData[id].title;
+            document.getElementById("modalText").innerText = processData[id].text;
+            document.getElementById("processModal").style.display = "flex";
+        }
+
+        function closeProcess() {
+            document.getElementById("processModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
