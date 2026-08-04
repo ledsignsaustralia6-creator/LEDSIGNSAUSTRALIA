@@ -107,7 +107,7 @@ allowfullscreen>
 <div class="video-panel" id="video-panel-1">
 <div class="video-frame-wrap">
 <iframe
-src="https://www.youtube.com/embed/L2dUfePJ5HU"
+src="https://www.youtube.com/embed/REPLACE_WITH_NEXT_VIDEO_ID"
 title="Project 2"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 referrerpolicy="strict-origin-when-cross-origin"
@@ -117,9 +117,9 @@ allowfullscreen>
 </div>
 
 <div class="video-panel" id="video-panel-2">
-<div class="video-frame-wrap">
+<div class="video-frame-wrap vertical">
 <iframe
-src="https://www.youtube.com/embed/j-7helF9sjI"
+src="https://www.youtube.com/embed/REPLACE_WITH_SHORT_VIDEO_ID"
 title="Project 3"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 referrerpolicy="strict-origin-when-cross-origin"
@@ -209,6 +209,12 @@ width: 100%;
 height: 100%;
 border: 0;
 }
+
+.video-frame-wrap.vertical {
+padding-bottom: 177.77%; /* 9:16 aspect ratio for Shorts */
+max-width: 320px;
+margin: 0 auto;
+}
 </style>
 
 <script>
@@ -221,7 +227,6 @@ panel.classList.toggle('active', i === index);
 });
 }
 </script>
-<!-- ===== END VIDEO GALLERY ===== -->
 
 
 
