@@ -29,10 +29,10 @@
     <!-- ===== PROJECT TILES (click to open full photo gallery) ===== -->
     <section class="projects-gallery">
 
-        <div class="project-item" onclick="openGallery('shopfront')">
-            <img src="images/shopfront-1.jpg" alt="Shop Front Sign Project">
+        <div class="project-item" onclick="openGallery('letters3d')">
+            <img src="images/3dil-1.jpg" alt="3D Letters Project">
             <div class="project-info">
-                <h3>Shop Front Sign</h3>
+                <h3>3D Illuminated Letters</h3>
                 <p class="tile-hint">Click to view all photos</p>
             </div>
         </div>
@@ -45,18 +45,18 @@
             </div>
         </div>
 
-        <div class="project-item" onclick="openGallery('pylon')">
-            <img src="images/work3.png" alt="Pylon Sign Project">
+        <div class="project-item" onclick="openGallery('shopfront')">
+            <img src="images/shopfront-1.jpg" alt="Shop Front Sign Project">
             <div class="project-info">
-                <h3>Pylon Sign</h3>
+                <h3>Shop Front Sign</h3>
                 <p class="tile-hint">Click to view all photos</p>
             </div>
         </div>
 
-        <div class="project-item" onclick="openGallery('letters3d')">
-            <img src="images/work4.png" alt="3D Letters Project">
+        <div class="project-item" onclick="openGallery('pylon')">
+            <img src="images/work3.png" alt="Pylon Sign Project">
             <div class="project-info">
-                <h3>3D Illuminated Letters</h3>
+                <h3>Pylon Sign</h3>
                 <p class="tile-hint">Click to view all photos</p>
             </div>
         </div>
@@ -145,6 +145,15 @@
 
     <script>
     var projectGalleries = {
+      letters3d: {
+        title: "3D Illuminated Letters",
+        photos: [
+          { src: "images/3dil-1.jpg" },
+          { src: "images/3dil-2.jpg" },
+          { src: "images/3dil-3.jpg" },
+          { src: "images/3dil-4.jpeg" }
+        ]
+      },
       shopfront: {
         title: "Shop Front Sign",
         photos: [
@@ -168,13 +177,8 @@
       pylon: {
         title: "Pylon Sign",
         photos: [
-          { src: "images/work3.png" }
-        ]
-      },
-      letters3d: {
-        title: "3D Illuminated Letters",
-        photos: [
-          { src: "images/work4.png" }
+          { src: "images/work3.png" },
+          { src: "images/pylon-2.jpg" }
         ]
       },
       custom: {
@@ -217,9 +221,9 @@
 <h2>See Our Work in Action</h2>
 
 <div class="video-tabs">
-<button class="video-tab-btn active" onclick="showVideo(0)">Project 1</button>
-<button class="video-tab-btn" onclick="showVideo(1)">Project 2</button>
-<button class="video-tab-btn" onclick="showVideo(2)">Project 3</button>
+<button class="video-tab-btn active" onclick="showVideo(0)">HI-POINT WINDOWS</button>
+<button class="video-tab-btn" onclick="showVideo(1)">FLETCHER CURRY & KEBAB</button>
+<button class="video-tab-btn" onclick="showVideo(2)">TYRE & TUNE GOSFORD</button>
 </div>
 
 <div class="video-panels">
@@ -227,8 +231,8 @@
 <div class="video-panel active" id="video-panel-0">
 <div class="video-frame-wrap">
 <iframe
-src="https://www.youtube.com/embed/yj75aKNpt5g"
-title="Project 1"
+src="https://www.youtube.com/embed/MkmXEhA3BkE"
+title="HI-POINT WINDOWS"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 referrerpolicy="strict-origin-when-cross-origin"
 allowfullscreen>
@@ -240,7 +244,7 @@ allowfullscreen>
 <div class="video-frame-wrap">
 <iframe
 src="https://www.youtube.com/embed/L2dUfePJ5HU"
-title="Project 2"
+title="FLETCHER CURRY & KEBAB"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 referrerpolicy="strict-origin-when-cross-origin"
 allowfullscreen>
@@ -252,7 +256,7 @@ allowfullscreen>
 <div class="video-frame-wrap vertical">
 <iframe
 src="https://www.youtube.com/embed/j-7helF9sjI"
-title="Project 3"
+title="TYRE & TUNE GOSFORD"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 referrerpolicy="strict-origin-when-cross-origin"
 allowfullscreen>
