@@ -16,6 +16,33 @@
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
+            <div class="nav-dropdown" id="productsDropdown">
+                <a href="products.html" class="nav-dropdown-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-megamenu">
+                    <div class="nav-megamenu-grid">
+                        <a href="3d-cut-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-a"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Cut Letters</strong><span>Dimensional letters in acrylic, metal &amp; more</span></span>
+                        </a>
+                        <a href="3d-illuminated-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Illuminated Letters</strong><span>Front-lit or halo-lit LED letters</span></span>
+                        </a>
+                        <a href="light-box.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-square"></i></span>
+                            <span class="nav-megamenu-text"><strong>Light Box</strong><span>Backlit acrylic-faced panel signs</span></span>
+                        </a>
+                        <a href="home-plates.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nav-megamenu-text"><strong>Home Plates</strong><span>House numbers &amp; street nameplates</span></span>
+                        </a>
+                    </div>
+                    <div class="nav-megamenu-footer">
+                        <a href="products.html">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                        <span>Instant online pricing</span>
+                    </div>
+                </div>
+            </div>
             <a href="contact.html">Contact</a>
         </nav>
         <a href="contact.html" class="quote-btn">Get Free Quote</a>
@@ -85,6 +112,7 @@
         <span class="gallery-close" onclick="closeGallery()">&times;</span>
         <h2 id="galleryModalTitle"></h2>
         <div class="gallery-modal-grid" id="galleryModalGrid"></div>
+        <a href="#" class="gallery-cta-btn" id="galleryCtaBtn" style="display:none;" target="_self"></a>
       </div>
     </div>
 
@@ -127,11 +155,31 @@
       cursor: pointer;
       color: #333;
     }
+    .gallery-cta-btn {
+      display: block;
+      margin: 24px auto 4px;
+      max-width: 320px;
+      text-align: center;
+      background: #4878c7;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .gallery-cta-btn:hover {
+      background: #3a63a8;
+    }
     .gallery-modal-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
       margin-top: 20px;
+    }
+    .gallery-photo-wrap {
+      position: relative;
     }
     .gallery-modal-grid img {
       width: 100%;
@@ -140,6 +188,45 @@
       background: #f2f2f2;
       border-radius: 8px;
       border: 1px solid #eee;
+      cursor: zoom-in;
+      display: block;
+    }
+    .gallery-photo-wrap::after {
+      content: "";
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50vw;
+      height: 50vh;
+      max-width: 92vw;
+      max-height: 92vh;
+      background-image: var(--zoom-img);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #fff;
+      border: 6px solid #fff;
+      border-radius: 14px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.45);
+      z-index: 2000;
+      pointer-events: none;
+    }
+    .gallery-photo-wrap::before {
+      content: "";
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.55);
+      z-index: 1999;
+      pointer-events: none;
+    }
+    .gallery-photo-wrap:hover::after,
+    .gallery-photo-wrap:hover::before {
+      display: block;
     }
     </style>
 
@@ -147,11 +234,20 @@
     var projectGalleries = {
       letters3d: {
         title: "3D Illuminated Letters",
+        productLink: "3d-illuminated-letters.html",
+        productLabel: "Design Your Own 3D Illuminated Letters \u2192",
         photos: [
-          { src: "images/3dil-1.jpg" },
           { src: "images/3dil-2.jpg" },
           { src: "images/3dil-3.jpg" },
-          { src: "images/3dil-4.jpeg" }
+          { src: "images/3dil-4.jpeg" },
+          { src: "images/3dil-4a-1.jpg" },
+          { src: "images/3dil-1.jpg" },
+          { src: "images/3dil-5.jpg" },
+          { src: "images/3dil-6.jpg" },
+          { src: "images/3dil-7.jpg" },
+          { src: "images/3dil-8.jpeg" },
+          { src: "images/3dil-9.jpg" }
+
         ]
       },
       shopfront: {
@@ -161,7 +257,9 @@
           { src: "images/shopfront-2.jpg" },
           { src: "images/shopfront-3.jpg" },
           { src: "images/shopfront-4.jpg" },
-          { src: "images/shopfront-5.jpg" }
+          { src: "images/shopfront-5.jpg" },
+          { src: "images/shopfront-6.jpg" },
+          { src: "images/shopfront-7.jpg" }
         ]
       },
       led: {
@@ -169,9 +267,7 @@
         photos: [
           { src: "images/ledilluminated-1.jpg" },
           { src: "images/ledilluminated-2.jpg" },
-          { src: "images/ledilluminated-3.jpg" },
-          { src: "images/ledilluminated-4.jpg" },
-          { src: "images/ledilluminated-5.jpg" }
+          { src: "images/ledilluminated-3.jpg" }
         ]
       },
       pylon: {
@@ -183,9 +279,16 @@
       },
       custom: {
         title: "3d letters",
+        productLink: "3d-cut-letters.html",
+        productLabel: "Design Your Own 3D Cut Letters \u2192",
         photos: [
+          { src: "images/3dletters-1a.jpg" },
           { src: "images/3dletters-1.jpg" },
-          { src: "images/3dletters-2.jpg" }
+          { src: "images/3dletters-2.jpg" },
+          { src: "images/3dletters-3.jpg" },
+          { src: "images/3dletters-4.jpg" }, 
+          { src: "images/3dletters-5.jpg" }
+
         ]
       },
       vehicle: {
@@ -204,10 +307,24 @@
       var grid = document.getElementById("galleryModalGrid");
       grid.innerHTML = "";
       for (var i = 0; i < data.photos.length; i++) {
+        var wrap = document.createElement("div");
+        wrap.className = "gallery-photo-wrap";
+        wrap.style.setProperty("--zoom-img", "url('" + data.photos[i].src + "')");
         var img = document.createElement("img");
         img.src = data.photos[i].src;
-        grid.appendChild(img);
+        wrap.appendChild(img);
+        grid.appendChild(wrap);
       }
+
+      var ctaBtn = document.getElementById("galleryCtaBtn");
+      if (data.productLink) {
+        ctaBtn.href = data.productLink;
+        ctaBtn.textContent = data.productLabel || "Design Your Own \u2192";
+        ctaBtn.style.display = "block";
+      } else {
+        ctaBtn.style.display = "none";
+      }
+
       document.getElementById("galleryModal").classList.add("active");
     }
 
@@ -504,5 +621,24 @@ panel.classList.toggle('active', i === index);
 
     <script src="script.js"></script>
     <script src="mobile-menu.js"></script>
+
+    <script>
+    (function() {
+        var dd = document.getElementById("productsDropdown");
+        if (!dd) return;
+        var closeTimer = null;
+
+        dd.addEventListener("mouseenter", function() {
+            clearTimeout(closeTimer);
+            dd.classList.add("open");
+        });
+
+        dd.addEventListener("mouseleave", function() {
+            closeTimer = setTimeout(function() {
+                dd.classList.remove("open");
+            }, 1000);
+        });
+    })();
+    </script>
 </body>
 </html>

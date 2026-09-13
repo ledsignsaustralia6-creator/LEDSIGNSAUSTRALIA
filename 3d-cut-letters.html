@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3D Cut Letters - Build Your Sign - LED SIGNS AUSTRALIA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:wght@900&family=Archivo+Black&family=Anton&family=Oswald:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LED SIGNS AUSTRALIA</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <div class="nav-dropdown" id="productsDropdown">
+                <a href="products.html" class="nav-dropdown-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-megamenu">
+                    <div class="nav-megamenu-grid">
+                        <a href="3d-cut-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-a"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Cut Letters</strong><span>Dimensional letters in acrylic, metal &amp; more</span></span>
+                        </a>
+                        <a href="3d-illuminated-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Illuminated Letters</strong><span>Front-lit or halo-lit LED letters</span></span>
+                        </a>
+                        <a href="light-box.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-square"></i></span>
+                            <span class="nav-megamenu-text"><strong>Light Box</strong><span>Backlit acrylic-faced panel signs</span></span>
+                        </a>
+                        <a href="home-plates.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nav-megamenu-text"><strong>Home Plates</strong><span>House numbers &amp; street nameplates</span></span>
+                        </a>
+                    </div>
+                    <div class="nav-megamenu-footer">
+                        <a href="products.html">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                        <span>Instant online pricing</span>
+                    </div>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="quote-btn">Get Free Quote</a>
+    </header>
+
+    <section class="page-hero">
+        <h1>3D Cut Letters</h1>
+        <p>Design your letters below and get an instant estimated price</p>
+    </section>
+
+    <!-- ===== CONFIGURATOR ===== -->
+    <section class="configurator" id="configurator">
+        <div class="configurator-inner">
+
+            <!-- LEFT: live preview -->
+            <div class="preview-col">
+                <div class="preview-stage" id="previewStage">
+                    <div class="preview-dim-wrap" id="previewDimWrap">
+                        <span class="dim-label dim-label-top" id="dimLabelWidth"></span>
+                        <span class="dim-label dim-label-left" id="dimLabelHeight"></span>
+                        <div class="preview-lines" id="previewLines"></div>
+                    </div>
+                </div>
+                <div class="preview-toggle">
+                    <button type="button" class="wall-btn active" data-wall="light" onclick="setWall('light', this)">Light Wall</button>
+                    <button type="button" class="wall-btn" data-wall="dark" onclick="setWall('dark', this)">Dark Wall</button>
+                </div>
+                <div class="preview-dims" id="previewDims">Approx. size: &mdash;</div>
+                <div class="preview-wall-dims" id="previewWallDims"></div>
+                <p class="preview-hint">Live preview &mdash; actual colour and finish may vary slightly from screen.</p>
+            </div>
+
+            <!-- RIGHT: options -->
+            <div class="options-col">
+
+                <div class="field">
+                    <label>Your Text</label>
+                    <div class="text-lines" id="textLinesWrap"></div>
+                    <button type="button" class="add-line-btn" id="addLineBtn" onclick="addTextLine()">+ Add another line</button>
+                    <span class="field-hint" id="charCount"></span>
+                </div>
+
+                <div class="field">
+                    <label>Material</label>
+                    <div class="pill-group" id="materialGroup"></div>
+                </div>
+
+                <div class="field">
+                    <label>Colour</label>
+                    <div class="swatch-group" id="colourGroup"></div>
+                </div>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="thicknessSelect">Thickness</label>
+                        <select id="thicknessSelect" onchange="updateAll()"></select>
+                    </div>
+                    <div>
+                        <label for="heightInput">Height (mm)</label>
+                        <input type="number" id="heightInput" value="200" step="10" oninput="updateAll()">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="fontSelect">Font</label>
+                    <select id="fontSelect" onchange="updateAll()">
+                        <option value="'Arial Black', Arial, sans-serif" data-weight="900" selected>Arial Black</option>
+                        <option value="'Bebas Neue', sans-serif" data-weight="400">Bebas Neue</option>
+                        <option value="'Merriweather', serif" data-weight="900">Merriweather Black</option>
+                        <option value="'Archivo Black', sans-serif" data-weight="400">Archivo Black</option>
+                        <option value="'Anton', sans-serif" data-weight="400">Anton</option>
+                        <option value="'Oswald', sans-serif" data-weight="700">Oswald Bold</option>
+                        <option value="'Montserrat', sans-serif" data-weight="900">Montserrat Black</option>
+                        <option value="__custom__" data-weight="700">Other &ndash; I'll specify in Notes below</option>
+                    </select>
+                    <span class="field-hint">All fonts above are chosen to be CNC router friendly &mdash; bold, uniform strokes with no fine hairlines that could break during cutting. Have a specific font in mind? Select "Other" and tell us in the Notes field below (a link or the exact font name works great).</span>
+                </div>
+
+                <div class="field">
+                    <label for="qtyInput">Quantity (sets)</label>
+                    <input type="number" id="qtyInput" value="1" min="1" step="1" oninput="updateAll()">
+                </div>
+
+                <div class="price-box">
+                    <div class="price-breakdown-hidden">
+                        <div class="price-row"><span>Material</span><span id="priceMaterial">$0.00</span></div>
+                        <div class="price-row"><span>CNC Cutting &amp; Setup</span><span id="priceCnc">$0.00</span></div>
+                    </div>
+                    <div class="price-row"><span>Subtotal (ex GST)</span><span id="priceSubtotal">$0.00</span></div>
+                    <div class="price-row"><span>GST (10%)</span><span id="priceGst">$0.00</span></div>
+                    <div class="price-row price-total"><span>Estimated Total</span><span id="priceTotal">$0.00</span></div>
+                    <p class="price-note">Instant estimate only &mdash; minimum order $70 inc GST. A <strong>paper installation template will be sent with your letters</strong>. <strong>Installation is not included</strong> &mdash; we offer professional installation across Greater Newcastle, Sydney and surrounding areas (get in touch for an install quote), or we can ship letters anywhere in Australia for self-install. <strong>Delivery cost is not included</strong> and will be confirmed on your official quote and invoice. Final price confirmed when we review your artwork.</p>
+                </div>
+
+                <div class="details-box">
+                    <h3>Your Details</h3>
+
+                    <div class="field">
+                        <label for="custName">Name <span class="req">*</span></label>
+                        <input type="text" id="custName" placeholder="Your name" oninput="clearFieldError(this)">
+                        <span class="field-error" id="custNameError"></span>
+                    </div>
+
+                    <div class="field field-half">
+                        <div>
+                            <label for="custEmail">Email</label>
+                            <input type="email" id="custEmail" placeholder="you@email.com" oninput="clearFieldError(this)">
+                        </div>
+                        <div>
+                            <label for="custPhone">Phone</label>
+                            <input type="tel" id="custPhone" placeholder="04xx xxx xxx" oninput="clearFieldError(this)">
+                        </div>
+                    </div>
+                    <span class="field-error" id="custContactError"></span>
+                    <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+
+                    <div class="field">
+                        <label>How would you like your order?</label>
+                        <div class="pill-group">
+                            <button type="button" class="pill-btn active" id="deliveryBtn" onclick="setDeliveryMethod('delivery', this)">Delivery</button>
+                            <button type="button" class="pill-btn" id="pickupBtn" onclick="setDeliveryMethod('pickup', this)">Pickup</button>
+                        </div>
+                    </div>
+
+                    <div class="field" id="addressField">
+                        <label for="custAddress">Delivery Suburb / Postcode <span class="req">*</span></label>
+                        <input type="text" id="custAddress" placeholder="e.g. Boolaroo NSW 2284" oninput="clearFieldError(this)">
+                        <span class="field-error" id="custAddressError"></span>
+                        <span class="field-hint">Delivery cost isn't included in this estimate &mdash; we'll calculate it based on your location and include it on your official quote and invoice.</span>
+                    </div>
+
+                    <div class="field">
+                        <label for="custNotes">Notes (optional)</label>
+                        <input type="text" id="custNotes" placeholder="Requesting a custom font? Tell us the name or send a link here">
+                        <span class="field-hint">Want a font that's not in the list? Select "Other" above and describe or link the font here &mdash; we'll confirm it's CNC-cuttable before your quote.</span>
+                    </div>
+                </div>
+
+                <div class="quote-actions">
+                    <button type="button" class="quote-action-btn email-btn" onclick="sendQuote('email')">
+                        <i class="fa-solid fa-envelope"></i> Email My Order
+                    </button>
+                    <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendQuote('whatsapp')">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp My Order
+                    </button>
+                </div>
+                <p class="send-hint">This sends your specs and contact details straight to us &mdash; it's a firm order request, not an automatic checkout. We'll confirm final pricing and timing before production starts.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== POPULAR PICKS ===== -->
+    <section class="popular-picks">
+        <div class="section-heading">
+            <h2>Popular Picks</h2>
+            <p>Tap one to load it into the builder above and tweak it to fit your space.</p>
+        </div>
+        <div class="picks-grid" id="picksGrid"></div>
+    </section>
+
+    <!-- ===== REAL WORK SHOWCASE ===== -->
+    <section class="real-work-section">
+        <div class="section-heading">
+            <h2>Real 3D Cut Letters We've Made</h2>
+            <p>Not just a price calculator &mdash; here's actual work we've designed, cut and installed for real customers.</p>
+        </div>
+        <div class="real-work-grid">
+            <div class="real-work-item"><img src="images/3dletters-1a.jpg" alt="3D cut letters project"></div>
+            <div class="real-work-item"><img src="images/3dletters-1.jpg" alt="3D cut letters project"></div>
+            <div class="real-work-item"><img src="images/3dletters-2.jpg" alt="3D cut letters project"></div>
+            <div class="real-work-item"><img src="images/3dletters-3.jpg" alt="3D cut letters project"></div>
+        </div>
+        <div class="real-work-grid">
+            <div class="real-work-item"><img src="images/3dletters-4.jpg" alt="3D cut letters project"></div>
+            <div class="real-work-item"><img src="images/3dletters-5.jpg" alt="3D cut letters project"></div>
+        </div>
+        <div class="real-work-cta">
+            <a href="projects.html">See More of Our Work in the Projects Gallery <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- ===== SPECS TABLE ===== -->
+    <section class="specs-section">
+        <div class="section-heading">
+            <h2>Materials &amp; Specifications</h2>
+        </div>
+        <div class="specs-table-wrap">
+            <table class="specs-table">
+                <thead>
+                    <tr><th>Material</th><th>Colour</th><th>Thickness</th><th>Min. Height</th></tr>
+                </thead>
+                <tbody id="specsTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="section-heading">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How long does production take?</summary>
+                <p>Most orders are ready in 3&ndash;5 working days after you approve your quote and artwork. Larger metal or timber orders can take a little longer &mdash; we'll confirm a timeframe when we send your formal quote.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I use my own logo or a custom shape instead of text?</summary>
+                <p>Yes. Use the text box above to get an instant estimate, then mention in your quote request that you'd like a logo or custom shape and attach your artwork &mdash; we'll price it properly for you.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can the letters be used outdoors?</summary>
+                <p>Aluminium, stainless steel and brass/copper letters are all weather-resistant and suited to outdoor use. Acrylic and PVC foam are best suited to covered or indoor applications.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is the price shown final?</summary>
+                <p>It's an instant estimate based on your text, size and material. Once we review your exact artwork we'll send a formal fixed-price quote before anything goes into production.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do you install the letters?</summary>
+                <p>We offer professional installation across <strong>Greater Newcastle, Sydney and surrounding areas</strong> &mdash; get in touch for an install quote. Outside these areas, we can <strong>ship letters anywhere in Australia</strong> for self-install, and every order comes with a <strong>paper installation template</strong> matched to your exact sign, showing the correct position for every fixing point.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Not Sure Which Option Suits You?</h2>
+        <a href="mailto:info@ledsignsaustralia.com.au" class="quote-btn">Get a Free Consultation</a>
+
+
+    <!-- ===== SITE FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+
+        <div class="footer-contact">
+          <h3>LED SIGNS AUSTRALIA</h3>
+
+          <div class="footer-item">
+            <span>📧</span>
+            <a href="mailto:info@ledsignsaustralia.com.au">info@ledsignsaustralia.com.au</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61481308955">+61 481 308 955</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61468383437">+61 468 383 437</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📍</span>
+            <p>Unit 6/78 Seventh Street, Boolaroo NSW 2284, Australia</p>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1ZkSF3gi5X/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/led_signs_australia?igsh=MWl4Z3ZxbzA1NTdi&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://share.google/oLgYBgmBVbnNzRLJH" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://wa.me/61481308955" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com/@ledsignsaustralia-pse?si=Vr0nA9Z8hgm8R8EG" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <p class="footer-copy">&copy; 2026 LED Signs Australia. All rights reserved.</p>
+        </div>
+
+        <div class="footer-map">
+          <iframe
+          src="https://www.google.com/maps?q=Unit+6/78+Seventh+Street,+Boolaroo+NSW+2284,+Australia&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius:8px; min-height:220px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </footer>
+
+    <style>
+    /* ===== Footer (matches services.html) ===== */
+    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
+    .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
+    .footer-item a { color:#fff; text-decoration:none; }
+    .footer-item a:hover { text-decoration:underline; }
+    .footer-item p { margin:0; }
+    .footer-social { display:flex; gap:10px; margin:18px 0; }
+    .footer-social a { width:40px; height:40px; border-radius:50%; background:#ffffff15; display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none; font-size:17px; }
+    .footer-social a:hover { background:#ffffff30; }
+    .footer-copy { font-size:14px; color:#e5e5e5; margin-top:24px; }
+    .footer-map { min-height:220px; height:100%; }
+    @media (max-width:700px){ .footer-inner{ grid-template-columns:1fr; } .footer-map{ height:220px; } }
+
+    /* ===== Shared section styling ===== */
+    .section-heading { max-width:700px; margin:0 auto 30px; text-align:center; padding:0 20px; }
+    .section-heading h2 { font-size:30px; font-weight:800; color:#1a1a1a; margin-bottom:8px; }
+    .section-heading p { color:#555; font-size:15.5px; line-height:1.5; }
+
+    /* ===== Configurator ===== */
+    .configurator { max-width:1150px; margin:50px auto; padding:0 20px; }
+    .configurator-inner {
+      display:grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      gap:36px;
+      background:#f7f8fa;
+      border:1px solid #e6e8ec;
+      border-radius:16px;
+      padding:32px;
+    }
+
+    .preview-col { display:flex; flex-direction:column; min-width:0; }
+    .preview-stage {
+      border-radius:12px;
+      min-height:280px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:30px 20px;
+      transition:background .25s ease;
+      overflow-x:auto;
+      min-width:0;
+      max-width:100%;
+      box-sizing:border-box;
+      background:
+        repeating-linear-gradient(0deg, #eef0f3 0px, #eef0f3 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(90deg, #eef0f3 0px, #eef0f3 1px, transparent 1px, transparent 28px),
+        #fbfbfc;
+    }
+    .preview-stage.dark {
+      background:
+        repeating-linear-gradient(0deg, #33363c 0px, #33363c 1px, transparent 1px, transparent 28px),
+        repeating-linear-gradient(90deg, #33363c 0px, #33363c 1px, transparent 1px, transparent 28px),
+        #1c1e22;
+    }
+    .preview-lines { text-align:center; }
+    .preview-dim-wrap {
+      position:relative;
+      display:inline-block;
+      border:1.5px dashed #4878c7;
+      padding:14px 18px;
+      margin:28px 40px 14px 46px;
+    }
+    .dim-label {
+      position:absolute;
+      color:#2f7fd6;
+      font-weight:700;
+      font-size:13px;
+      font-family:Arial, Helvetica, sans-serif;
+      white-space:nowrap;
+      pointer-events:none;
+    }
+    .dim-label-top {
+      top:-22px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+    .dim-label-left {
+      left:-10px;
+      top:50%;
+      transform:translate(-100%, -50%);
+    }
+    @media (max-width:850px) {
+      .preview-dim-wrap { margin:24px 30px 12px 34px; padding:10px 12px; }
+      .dim-label { font-size:12px; }
+    }
+    .preview-letters {
+      font-size:56px;
+      line-height:1.1;
+      font-weight:700;
+      display:inline-block;
+      white-space:nowrap;
+    }
+    .preview-toggle { display:flex; gap:10px; margin-top:14px; justify-content:center; }
+    .wall-btn {
+      border:1px solid #d7dbe0; background:#fff; color:#444; font-size:13px;
+      padding:7px 14px; border-radius:20px; cursor:pointer; transition:.15s;
+    }
+    .wall-btn.active, .wall-btn:hover { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .preview-hint { text-align:center; font-size:12.5px; color:#888; margin-top:10px; }
+    .preview-dims {
+      text-align:center; font-size:14px; font-weight:700; color:#1a1a1a;
+      margin-top:14px; padding:8px 14px; background:#fff; border:1px solid #e6e8ec;
+      border-radius:8px; display:inline-block; align-self:center;
+    }
+    .preview-wall-dims {
+      text-align:center; font-size:12px; color:#888; margin-top:8px; align-self:center;
+    }
+    .preview-line-row {
+      display:flex; justify-content:center;
+    }
+
+    .options-col { display:flex; flex-direction:column; gap:18px; }
+    .field label { display:block; font-size:13.5px; font-weight:700; color:#333; margin-bottom:6px; }
+    .field input[type=text], .field input[type=number], .field select, .field textarea {
+      width:100%; padding:10px 12px; border:1px solid #d7dbe0; border-radius:8px;
+      font-size:15px; background:#fff; color:#1a1a1a; font-family:inherit;
+      resize:vertical; min-height:44px;
+    }
+    .field input:focus, .field select:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
+    .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+    .text-lines { display:flex; flex-direction:column; gap:8px; }
+    .text-line-row { display:flex; gap:8px; align-items:center; }
+    .text-line-row input[type=text] { flex:1; margin:0; }
+    .remove-line-btn {
+      flex:0 0 auto; width:36px; height:36px; border-radius:8px;
+      border:1px solid #d7dbe0; background:#fff; color:#888; font-size:16px;
+      cursor:pointer; line-height:1; transition:.15s;
+    }
+    .remove-line-btn:hover { background:#fdecec; border-color:#e39a9a; color:#c8202f; }
+    .add-line-btn {
+      align-self:flex-start; margin-top:2px; border:1.5px solid #58a95c; background:#fff;
+      color:#3d8a41; font-size:13.5px; font-weight:700; padding:8px 16px;
+      border-radius:8px; cursor:pointer; transition:.15s;
+    }
+    .add-line-btn:hover { background:#f1f9f1; }
+    .add-line-btn:disabled { opacity:.4; cursor:not-allowed; }
+
+    .pill-group { display:flex; flex-wrap:wrap; gap:8px; }
+    .pill-btn {
+      border:1px solid #d7dbe0; background:#fff; color:#333; font-size:13.5px;
+      padding:8px 14px; border-radius:20px; cursor:pointer; transition:.15s;
+    }
+    .pill-btn.active { background:#4878c7; color:#fff; border-color:#4878c7; }
+
+    .swatch-group { display:flex; flex-wrap:wrap; gap:10px; }
+    .swatch-btn {
+      width:34px; height:34px; border-radius:50%; cursor:pointer;
+      border:2px solid transparent; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15);
+      position:relative;
+    }
+    .swatch-btn.active { border-color:#4878c7; box-shadow:0 0 0 3px rgba(72,120,199,0.25); }
+    .swatch-btn[data-white]::after {
+      content:""; position:absolute; inset:0; border-radius:50%; box-shadow:inset 0 0 0 1px #ccc;
+    }
+
+    .price-box { background:#fff; border:1px solid #e6e8ec; border-radius:10px; padding:16px 18px; }
+    .price-breakdown-hidden { display:none; }
+    .price-row { display:flex; justify-content:space-between; font-size:14.5px; color:#555; padding:3px 0; }
+    .price-total { font-size:19px; font-weight:800; color:#1a1a1a; border-top:1px solid #e6e8ec; margin-top:6px; padding-top:8px; }
+    .price-note { font-size:12px; color:#888; margin:8px 0 0; }
+
+    .details-box { background:#fff; border:1px solid #e6e8ec; border-radius:10px; padding:18px; display:flex; flex-direction:column; gap:14px; }
+    .details-box h3 { font-size:15px; font-weight:800; color:#1a1a1a; margin:0; }
+    .req { color:#c8202f; }
+    .field-error { display:block; font-size:12.5px; color:#c8202f; margin-top:4px; min-height:0; }
+    .field.has-error input { border-color:#c8202f; }
+    .send-hint { font-size:12px; color:#888; text-align:center; margin:0; }
+
+    .quote-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .quote-action-btn {
+      flex:1; min-width:180px; border:none; border-radius:8px; padding:13px 16px;
+      font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
+      justify-content:center; gap:8px; transition:.15s;
+    }
+    .email-btn { background:#4878c7; color:#fff; }
+    .email-btn:hover { background:#3a63a8; }
+    .whatsapp-btn { background:#25d366; color:#fff; }
+    .whatsapp-btn:hover { background:#1fb959; }
+
+    @media (max-width:850px) {
+      .configurator-inner { grid-template-columns:minmax(0,1fr); }
+      .preview-letters { font-size:40px; }
+    }
+
+    /* ===== Popular picks ===== */
+    .popular-picks { max-width:1150px; margin:60px auto; padding:0 20px; }
+    .picks-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .pick-card {
+      background:#fff; border:1px solid #e6e8ec; border-radius:12px; padding:22px;
+      display:flex; flex-direction:column; gap:10px; cursor:pointer; transition:.2s;
+    }
+    .pick-card:hover { transform:translateY(-4px); box-shadow:0 10px 24px rgba(72,120,199,0.15); border-color:#4878c7; }
+    .pick-word { font-size:26px; font-weight:800; letter-spacing:1px; color:#1a1a1a; }
+    .pick-desc { font-size:13.5px; color:#666; line-height:1.5; flex:1; }
+    .pick-price { font-size:14px; font-weight:700; color:#4878c7; }
+    @media (max-width:850px){ .picks-grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px){ .picks-grid{ grid-template-columns:1fr; } }
+
+    /* ===== Real work showcase ===== */
+    .real-work-section { max-width:1150px; margin:60px auto; padding:0 20px; }
+    .real-work-grid {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .real-work-item {
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid #e6e8ec;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .real-work-item:hover {
+      transform:translateY(-4px);
+      box-shadow:0 10px 22px rgba(0,0,0,0.15);
+    }
+    .real-work-item img {
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+    }
+    .real-work-cta {
+      text-align:center;
+      margin-top:26px;
+    }
+    .real-work-cta a {
+      color:#4878c7;
+      font-weight:700;
+      font-size:14.5px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .real-work-cta a:hover { text-decoration:underline; }
+    @media (max-width:850px){ .real-work-grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:480px){ .real-work-grid{ grid-template-columns:1fr; } }
+
+    /* ===== Specs table ===== */
+    .specs-section { max-width:1100px; margin:60px auto; padding:0 20px; }
+    .specs-table-wrap { overflow-x:auto; border:1px solid #e6e8ec; border-radius:10px; }
+    .specs-table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; }
+    .specs-table thead th { background:#4878c7; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
+    .specs-table tbody td { padding:14px 18px; border-top:1px solid #e6e8ec; color:#333; }
+    .specs-table tbody tr:nth-child(even) { background:#f7f8fa; }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width:800px; margin:60px auto; padding:0 20px; }
+    .faq-list { display:flex; flex-direction:column; gap:10px; }
+    .faq-item { background:#f7f8fa; border:1px solid #e6e8ec; border-radius:10px; padding:14px 18px; }
+    .faq-item summary { cursor:pointer; font-weight:700; color:#1a1a1a; font-size:15.5px; }
+    .faq-item p { margin:10px 0 2px; color:#555; font-size:14.5px; line-height:1.6; }
+    </style>
+    <!-- ===== END SITE FOOTER ===== -->
+
+    <script src="mobile-menu.js"></script>
+    <script>
+    // ============================================================
+    // 3D LETTERS CONFIGURATOR
+    // Pricing is an ESTIMATE only. Edit the rates below to match
+    // your real material + labour costs.
+    // ============================================================
+
+    // ---- CNC / router machining cost model ----
+    // Total cutting length(m) = number of letters x METERS_PER_LETTER x height(m)
+    // Cutting minutes = total cutting length(m) x CUTTING_MINUTES_PER_METER
+    // Machine cost = (cutting minutes / 60) x HOURLY_RATE
+    // Total CNC charge = machine cost + SETUP_FEE (once per job)
+    const CNC = {
+      metersPerLetter: 5,          // cutting-length multiplier per letter, based on height
+      cuttingMinutesPerMeter: 2,   // minutes of machine time per metre of cutting
+      hourlyRate: 100              // $ per hour of machine time
+    };
+
+    function calcCNCCost(letterCount, heightMM) {
+      const heightM = heightMM / 1000;
+      const totalLengthM = letterCount * CNC.metersPerLetter * heightM;
+      const cuttingMinutes = totalLengthM * CNC.cuttingMinutesPerMeter;
+      const cuttingHours = cuttingMinutes / 60;
+      const machineCost = cuttingHours * CNC.hourlyRate;
+      return { totalLengthM, cuttingMinutes, cuttingHours, machineCost };
+    }
+
+    // ---- Standard sheet size, setup fee & wastage allowance ----
+    // Setup fee is charged per sheet (or part-sheet) the job actually consumes,
+    // based on a standard full sheet of 2440mm x 1220mm. This is independent of
+    // material rates - every material's rate is used exactly as written below.
+    const SHEET_SIZE = { widthMM: 2440, heightMM: 1220 };
+    const SHEET_AREA_M2 = (SHEET_SIZE.widthMM / 1000) * (SHEET_SIZE.heightMM / 1000);
+    const SHEET_SETUP_FEE = 30; // $ per sheet, ex GST
+
+    // 10% allowance added to the real measured area to account for offcuts/wastage
+    // during cutting - applied before material cost and sheet-count are calculated.
+    const WASTAGE_MULTIPLIER = 1.10;
+
+    const MATERIALS = {
+      acrylic: {
+        label: "Acrylic",
+        minHeightMM: 100,
+        colours: [
+          { name: "White", hex: "#f7f7f7", thicknesses: [
+              { mm: 3, rate: 70 }, { mm: 6, rate: 180 }, { mm: 10, rate: 250 }, { mm: 15, rate: 470 }
+          ]},
+          { name: "Black", hex: "#1a1a1a", thicknesses: [
+              { mm: 3, rate: 70  }, { mm: 6, rate: 200 }
+          ]},
+          { name: "Clear", hex: "linear-gradient(135deg,#ffffff,#dbeefc)", thicknesses: [
+              { mm: 3, rate: 70}, { mm: 6, rate: 200 }, { mm: 8, rate: 250 }
+          ]},
+          { name: "Red", hex: "#c8202f", thicknesses: [
+              { mm: 3, rate: 70 }
+          ]},
+          { name: "Blue", hex: "#2c6bff", thicknesses: [
+              { mm: 3, rate: 70 }
+          ]},
+          { name: "Orange", hex: "#f4771f", thicknesses: [
+              { mm: 3, rate: 70}
+          ]},
+          { name: "Green", hex: "#1f6b3a", thicknesses: [
+              { mm: 3, rate: 70 }
+          ]}
+        ]
+      },
+      pvcfoam: {
+        label: "Foam PVC",
+        minHeightMM: 100,
+        colours: [
+          { name: "White", hex: "#f7f7f7", thicknesses: [
+              { mm: 6, rate: 50 }, { mm: 10, rate: 80 }
+          ]},
+          { name: "Black", hex: "#1a1a1a", thicknesses: [
+              { mm: 10, rate: 80 }, { mm: 25, rate: 175 }
+          ]}
+        ]
+      },
+      coreflute: {
+        label: "Core Flute",
+        minHeightMM: 100,
+        colours: [
+          { name: "White", hex: "#f7f7f7", thicknesses: [
+              { mm: 3, rate: 12 }, { mm: 5, rate: 18 }
+          ]}
+        ]
+      },
+      acp: {
+        label: "Aluminium Composite (ACP)",
+        minHeightMM: 100,
+        colours: [
+          { name: "Matte White", hex: "#f2f2f2", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "Matte Black", hex: "#2b2b2b", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "Gloss White", hex: "#ffffff", thicknesses: [{ mm: 3, rate: 50}] },
+          { name: "Gloss Black", hex: "#111111", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "GLOSS Yellow", hex: "#c9a227", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "ROYAL Blue", hex: "#1e3a5f", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "Red", hex: "#c0392b", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "Glossy Orange", hex: "#e8590c", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "Green", hex: "#2e7d32", thicknesses: [{ mm: 3, rate: 50 }] },
+          { name: "Matte Gold", hex: "linear-gradient(135deg,#d9b25c,#8a662c)", thicknesses: [{ mm: 3, rate: 80 }] },
+          { name: "Mirror Gold", hex: "linear-gradient(135deg,#fceabb,#f8b500)", thicknesses: [{ mm: 3, rate: 80 }] },
+          { name: "Matte Silver", hex: "linear-gradient(135deg,#c7ccd1,#9aa0a6)", thicknesses: [{ mm: 3, rate: 80 }] },
+          { name: "Mirror Silver", hex: "linear-gradient(135deg,#eef0f2,#9aa0a6)", thicknesses: [{ mm: 3, rate: 80 }] }
+          
+        ]
+      }
+    };
+
+    const PICKS = [
+      { text: "RECEPTION", material: "acrylic", colour: "White", thickness: 6, height: 200, font: "'Arial Black', Arial, sans-serif", qty: 1 },
+      { text: "CAFE", material: "acp", colour: "Matte Black", thickness: 3, height: 250, font: "'Anton', sans-serif", qty: 1 },
+      { text: "SALE", material: "coreflute", colour: "White", thickness: 5, height: 180, font: "'Bebas Neue', sans-serif", qty: 1 }
+    ];
+
+    let currentMaterial = "acrylic";
+    let currentColour = MATERIALS.acrylic.colours[0].name;
+    let currentWall = "light";
+    // Real measured dimensions from the last preview render (DOM-measured, not estimated)
+    let lastMeasurement = { maxWidthMM: 0, totalHeightMM: 0, totalAreaCm2: 0, lineCount: 1 };
+    let deliveryMethod = "delivery";
+    const MAX_LINES = 3;
+    const LINE_MAXLENGTH = 30;
+    let textLines = ["RECEPTION"];
+
+    function setDeliveryMethod(mode, btn) {
+      deliveryMethod = mode;
+      document.getElementById("deliveryBtn").classList.toggle("active", mode === "delivery");
+      document.getElementById("pickupBtn").classList.toggle("active", mode === "pickup");
+      document.getElementById("addressField").style.display = mode === "delivery" ? "block" : "none";
+      clearFieldError(document.getElementById("custAddress"));
+    }
+
+    function clearFieldError(el) {
+      el.closest(".field")?.classList.remove("has-error");
+      const errEl = document.getElementById(el.id + "Error");
+      if (errEl) errEl.textContent = "";
+      const contactErr = document.getElementById("custContactError");
+      if (contactErr && (el.id === "custEmail" || el.id === "custPhone")) contactErr.textContent = "";
+    }
+
+    function validateDetails() {
+      let ok = true;
+      const name = document.getElementById("custName");
+      const email = document.getElementById("custEmail");
+      const phone = document.getElementById("custPhone");
+      const address = document.getElementById("custAddress");
+
+      if (!name.value.trim()) {
+        name.closest(".field").classList.add("has-error");
+        document.getElementById("custNameError").textContent = "Please enter your name.";
+        ok = false;
+      }
+      if (!email.value.trim() && !phone.value.trim()) {
+        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
+        ok = false;
+      }
+      if (deliveryMethod === "delivery" && !address.value.trim()) {
+        address.closest(".field").classList.add("has-error");
+        document.getElementById("custAddressError").textContent = "Please enter a suburb or postcode for delivery.";
+        ok = false;
+      }
+      return ok;
+    }
+
+    function fmt(n) { return "$" + n.toFixed(2); }
+
+    function buildMaterialPills() {
+      const wrap = document.getElementById("materialGroup");
+      wrap.innerHTML = "";
+      Object.keys(MATERIALS).forEach(key => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pill-btn" + (key === currentMaterial ? " active" : "");
+        btn.textContent = MATERIALS[key].label;
+        btn.onclick = () => { currentMaterial = key; onMaterialChange(); };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function onMaterialChange() {
+      const mat = MATERIALS[currentMaterial];
+      currentColour = mat.colours[0].name;
+      buildMaterialPills();
+      buildColourSwatches();
+      buildThicknessSelect();
+      document.getElementById("heightInput").min = mat.minHeightMM;
+      if (parseInt(document.getElementById("heightInput").value, 10) < mat.minHeightMM) {
+        document.getElementById("heightInput").value = mat.minHeightMM;
+      }
+      updateAll();
+    }
+
+    function currentColourObj() {
+      const mat = MATERIALS[currentMaterial];
+      return mat.colours.find(c => c.name === currentColour) || mat.colours[0];
+    }
+
+    // Thickness options depend on the SELECTED COLOUR, not just the material -
+    // e.g. Acrylic White offers 3/6/10/15mm, but Acrylic Red only offers 3mm.
+    function buildThicknessSelect() {
+      const colour = currentColourObj();
+      const sel = document.getElementById("thicknessSelect");
+      const prevValue = sel.value;
+      sel.innerHTML = "";
+      colour.thicknesses.forEach(t => {
+        const opt = document.createElement("option");
+        opt.value = t.mm;
+        opt.textContent = t.mm + "mm";
+        sel.appendChild(opt);
+      });
+      const stillValid = colour.thicknesses.some(t => String(t.mm) === prevValue);
+      sel.value = stillValid ? prevValue : colour.thicknesses[0].mm;
+    }
+
+    function buildColourSwatches() {
+      const mat = MATERIALS[currentMaterial];
+      const wrap = document.getElementById("colourGroup");
+      wrap.innerHTML = "";
+      mat.colours.forEach(c => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "swatch-btn" + (c.name === currentColour ? " active" : "");
+        btn.style.background = c.hex;
+        btn.title = c.name;
+        const hexLower = c.hex.toLowerCase();
+        if (hexLower.includes("f7f7f7") || hexLower.includes("fff") || hexLower.includes("f2f2f2")) {
+          btn.setAttribute("data-white", "1");
+        }
+        btn.onclick = () => {
+          currentColour = c.name;
+          buildColourSwatches();
+          buildThicknessSelect();
+          updateAll();
+        };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function setWall(mode, btn) {
+      currentWall = mode;
+      document.getElementById("previewStage").classList.toggle("dark", mode === "dark");
+      document.querySelectorAll(".wall-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    }
+
+    function currentColourHex() {
+      const mat = MATERIALS[currentMaterial];
+      const c = mat.colours.find(c => c.name === currentColour) || mat.colours[0];
+      return c.hex;
+    }
+
+    function applyLetterStyle(span, colourVal, thickness) {
+      if (colourVal.startsWith("linear-gradient")) {
+        span.style.backgroundImage = colourVal;
+        span.style.webkitBackgroundClip = "text";
+        span.style.backgroundClip = "text";
+        span.style.color = "transparent";
+      } else {
+        span.style.backgroundImage = "none";
+        span.style.color = colourVal;
+      }
+      const depth = Math.max(1, Math.min(8, Math.round(thickness / 2)));
+      let shadow = [];
+      for (let i = 1; i <= depth; i++) {
+        shadow.push(`${i}px ${i}px 0 rgba(0,0,0,${0.10 + i * 0.02})`);
+      }
+      span.style.textShadow = shadow.join(",");
+    }
+
+    // CSS font-size sets the em-box, not the visible height of a capital letter -
+    // real cap-height is usually only ~65-75% of font-size, and that ratio varies
+    // per font. Signage "Height (mm)" specs mean cap-height, so we measure the
+    // actual rendered height of "H" in the chosen font/size to calibrate mm-per-px
+    // correctly instead of assuming font-size == physical letter height.
+    let _measureCanvas = null;
+    function measureCapHeightPx(fontFamily, fontSizePx) {
+      if (!_measureCanvas) _measureCanvas = document.createElement("canvas");
+      const ctx = _measureCanvas.getContext("2d");
+      ctx.font = "700 " + fontSizePx + "px " + fontFamily;
+      const m = ctx.measureText("H");
+      if (m.actualBoundingBoxAscent !== undefined && m.actualBoundingBoxDescent !== undefined) {
+        const h = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+        if (h > 0) return h;
+      }
+      return fontSizePx * 0.72; // fallback for older browsers without bounding-box metrics
+    }
+
+    function updatePreview() {
+      const lines = textLines.slice(0, MAX_LINES).map(t => t.trim() ? t : " ");
+      const heightMM = Math.max(parseInt(document.getElementById("heightInput").value, 10) || 100, 20);
+      const fontSelect = document.getElementById("fontSelect");
+      const fontValue = fontSelect.value;
+      const fontWeight = fontSelect.selectedOptions[0].dataset.weight || "700";
+      // "Other" doesn't have a real font loaded yet - preview falls back to a
+      // safe CNC-friendly default until we confirm the customer's requested font.
+      const font = fontValue === "__custom__" ? "'Arial Black', Arial, sans-serif" : fontValue;
+      const colourVal = currentColourHex();
+      const thickness = parseInt(document.getElementById("thicknessSelect").value, 10) || currentColourObj().thicknesses[0].mm;
+
+      // Letter size is driven purely by the Height (mm) field, exactly like the
+      // real sign would be - it does NOT shrink or grow to fit the box width.
+      // The box itself stays a fixed size; only the dimension numbers below/around
+      // it update to reflect the true calculated size (same behaviour as Easy Signs).
+      const scale = Math.max(0.3, Math.min(1, 220 / (heightMM * lines.length)));
+      const fontSizePx = Math.round(heightMM * 0.55 * scale);
+      const gapPx = Math.round(fontSizePx * 0.3);
+
+      const container = document.getElementById("previewLines");
+      container.innerHTML = "";
+      container.style.display = "flex";
+      container.style.flexDirection = "column";
+      container.style.gap = gapPx + "px";
+
+      const lineSpans = [];
+      lines.forEach(lineText => {
+        const row = document.createElement("div");
+        row.className = "preview-line-row";
+        const span = document.createElement("span");
+        span.className = "preview-letters";
+        span.style.fontFamily = font;
+        span.style.fontWeight = fontWeight;
+        span.style.fontSize = fontSizePx + "px";
+        span.style.lineHeight = "1";
+        span.style.display = "inline-block";
+        applyLetterStyle(span, colourVal, thickness);
+        span.textContent = lineText;
+        row.appendChild(span);
+        container.appendChild(row);
+        lineSpans.push(span);
+      });
+
+      // ===== Real measurement (not an estimate) =====
+      // Read each line's actual rendered pixel width, then convert to real-world
+      // mm using the font's true rendered cap-height (not the CSS font-size box)
+      // for the mm-per-pixel ratio, so it matches how sign height is actually cut.
+      const capHeightPx = measureCapHeightPx(font, fontSizePx);
+      const mmPerPx = heightMM / capHeightPx;
+      const lineWidthsMM = lineSpans.map(s => Math.round(s.offsetWidth * mmPerPx));
+      const maxWidthMM = Math.max(...lineWidthsMM, 1);
+      const gapMM = heightMM * 0.3;
+      const totalHeightMM = Math.round(lines.length * heightMM + (lines.length - 1) * gapMM);
+
+      let totalAreaCm2 = 0;
+      lineWidthsMM.forEach(wMM => {
+        totalAreaCm2 += (heightMM / 10) * (wMM / 10);
+      });
+
+      const totalLetters = lines.reduce((sum, l) => sum + (l.match(/[^\s]/g) || []).length, 0);
+
+      lastMeasurement = {
+        maxWidthMM,
+        totalHeightMM,
+        totalAreaCm2,
+        lineCount: lines.length,
+        totalLetters,
+        heightMM
+      };
+
+      updateDimensionsDisplay(maxWidthMM, totalHeightMM);
+      updateWallReference(mmPerPx);
+      updateDimOverlay(maxWidthMM, totalHeightMM);
+      adjustStageAlignment();
+    }
+
+    function adjustStageAlignment() {
+      // When the preview is centered but wider than the box, half the overflow
+      // gets pushed off the LEFT edge too - so scrolling all the way left still
+      // hides the start of the text. Switch to left/top alignment whenever the
+      // content overflows, so scrollLeft/scrollTop = 0 always shows the true start.
+      const stage = document.getElementById("previewStage");
+      const overflowX = stage.scrollWidth > stage.clientWidth + 1;
+      const overflowY = stage.scrollHeight > stage.clientHeight + 1;
+      stage.style.justifyContent = overflowX ? "flex-start" : "center";
+      stage.style.alignItems = overflowY ? "flex-start" : "center";
+      if (overflowX) stage.scrollLeft = 0;
+      if (overflowY) stage.scrollTop = 0;
+    }
+
+    function updateDimOverlay(widthMM, heightMM) {
+      document.getElementById("dimLabelWidth").textContent = widthMM;
+      document.getElementById("dimLabelHeight").textContent = heightMM;
+    }
+
+    function updateDimensionsDisplay(widthMM, heightMM) {
+      const dimsEl = document.getElementById("previewDims");
+      const widthDisplay = widthMM >= 1000 ? (widthMM / 1000).toFixed(2) + "m" : widthMM + "mm";
+      const heightDisplay = heightMM >= 1000 ? (heightMM / 1000).toFixed(2) + "m" : heightMM + "mm";
+      dimsEl.textContent = `Actual sign size: ${widthDisplay} W \u00d7 ${heightDisplay} H`;
+    }
+
+    function updateWallReference(mmPerPx) {
+      const stage = document.getElementById("previewStage");
+      const stageWidthMM = stage.offsetWidth * mmPerPx;
+      const stageHeightMM = stage.offsetHeight * mmPerPx;
+      const wEl = document.getElementById("previewWallDims");
+      const wM = (stageWidthMM / 1000).toFixed(1);
+      const hM = (stageHeightMM / 1000).toFixed(1);
+      wEl.textContent = `This preview box represents approx. ${wM}m \u00d7 ${hM}m of wall space at this scale`;
+    }
+
+    function calcPrice() {
+      const mat = MATERIALS[currentMaterial];
+      const heightMM = Math.max(parseInt(document.getElementById("heightInput").value, 10) || mat.minHeightMM, mat.minHeightMM);
+      const qty = Math.max(parseInt(document.getElementById("qtyInput").value, 10) || 1, 1);
+
+      // Uses the real DOM-measured area from the live preview (lastMeasurement),
+      // set by updatePreview() - so the price always matches what's shown on screen.
+      // A 10% wastage allowance is added on top to account for offcuts during cutting.
+      const rawAreaCm2 = lastMeasurement.totalAreaCm2 || 1;
+      const areaCm2 = rawAreaCm2 * WASTAGE_MULTIPLIER;
+      const areaM2 = areaCm2 / 10000;
+      const letterCount = lastMeasurement.totalLetters || 1;
+
+      // Rate is a fixed $/m\u00b2 figure for the exact colour + thickness combo chosen
+      // (not a multiplier) - matches how each colour's available thicknesses are priced.
+      const colour = currentColourObj();
+      const thicknessMM = parseInt(document.getElementById("thicknessSelect").value, 10) || colour.thicknesses[0].mm;
+      const thicknessEntry = colour.thicknesses.find(t => t.mm === thicknessMM) || colour.thicknesses[0];
+      const rate = thicknessEntry.rate;
+      const materialCost = areaM2 * rate;
+
+      // CNC / router cutting cost - based on letter count and height, not material,
+      // so it scales up naturally with bigger or more complex signs.
+      const cnc = calcCNCCost(letterCount, heightMM);
+
+      // Setup fee: $30 per sheet (or part-sheet) of 2440x1220mm the job consumes,
+      // based on the wastage-adjusted area - bigger jobs needing more sheets pay
+      // proportionally more setup, rather than one flat fee regardless of size.
+      const sheetsNeeded = Math.max(1, Math.ceil(areaM2 / SHEET_AREA_M2));
+      const setupCost = sheetsNeeded * SHEET_SETUP_FEE;
+      const cncCost = cnc.machineCost + setupCost;
+
+      // No installation cost included - we don't install on-site as standard.
+      // Local installation (Greater Newcastle, Sydney & surrounds) is quoted separately.
+      let perSetExGst = materialCost + cncCost;
+      perSetExGst = Math.max(perSetExGst, 32);
+
+      let subtotalExGst = perSetExGst * qty;
+      subtotalExGst = Math.max(subtotalExGst, 63.64); // ~ $70 inc GST minimum
+
+      const gst = subtotalExGst * 0.10;
+      const total = subtotalExGst + gst;
+
+      document.getElementById("priceMaterial").textContent = fmt(materialCost * qty);
+      document.getElementById("priceCnc").textContent = fmt(cncCost * qty);
+      document.getElementById("priceSubtotal").textContent = fmt(subtotalExGst);
+      document.getElementById("priceGst").textContent = fmt(gst);
+      document.getElementById("priceTotal").textContent = fmt(total);
+
+      return { materialCost, cncCost, sheetsNeeded, setupCost, subtotalExGst, gst, total, cnc };
+    }
+
+    function renderTextLines() {
+      const wrap = document.getElementById("textLinesWrap");
+      wrap.innerHTML = "";
+      textLines.forEach((val, i) => {
+        const row = document.createElement("div");
+        row.className = "text-line-row";
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.maxLength = LINE_MAXLENGTH;
+        input.value = val;
+        input.placeholder = i === 0 ? "e.g. RECEPTION" : "e.g. OPEN 24/7";
+        input.oninput = () => { textLines[i] = input.value; updateAll(); };
+        row.appendChild(input);
+
+        if (textLines.length > 1) {
+          const removeBtn = document.createElement("button");
+          removeBtn.type = "button";
+          removeBtn.className = "remove-line-btn";
+          removeBtn.title = "Remove this line";
+          removeBtn.textContent = "\u00d7";
+          removeBtn.onclick = () => removeTextLine(i);
+          row.appendChild(removeBtn);
+        }
+
+        wrap.appendChild(row);
+      });
+
+      const addBtn = document.getElementById("addLineBtn");
+      addBtn.disabled = textLines.length >= MAX_LINES;
+      addBtn.textContent = textLines.length >= MAX_LINES ? "Maximum " + MAX_LINES + " lines" : "+ Add another line";
+    }
+
+    function addTextLine() {
+      if (textLines.length >= MAX_LINES) return;
+      textLines.push("");
+      renderTextLines();
+      updateAll();
+      const inputs = document.querySelectorAll("#textLinesWrap input");
+      if (inputs.length) inputs[inputs.length - 1].focus();
+    }
+
+    function removeTextLine(i) {
+      if (textLines.length <= 1) return;
+      textLines.splice(i, 1);
+      renderTextLines();
+      updateAll();
+    }
+
+    function updateAll() {
+      const totalChars = textLines.reduce((sum, l) => sum + l.length, 0);
+      document.getElementById("charCount").textContent =
+        totalChars + " characters \u00b7 " + textLines.length + " / " + MAX_LINES + " lines";
+
+      updatePreview();
+      calcPrice();
+    }
+
+    function buildSpecsTable() {
+      const body = document.getElementById("specsTableBody");
+      body.innerHTML = "";
+
+      Object.values(MATERIALS).forEach(mat => {
+        // Group colours that share the exact same thickness options into one row
+        // (e.g. all 13 ACP colours are 3mm only, so they combine into a single row).
+        const groups = [];
+        mat.colours.forEach(c => {
+          const key = c.thicknesses.map(t => t.mm).join(",");
+          let group = groups.find(g => g.key === key);
+          if (!group) {
+            group = { key, names: [], thicknesses: c.thicknesses };
+            groups.push(group);
+          }
+          group.names.push(c.name);
+        });
+
+        groups.forEach((g, i) => {
+          const tr = document.createElement("tr");
+          const thicknessList = g.thicknesses.map(t => t.mm + "mm").join(" / ");
+          tr.innerHTML = `
+            <td>${i === 0 ? mat.label : ""}</td>
+            <td>${g.names.join(" / ")}</td>
+            <td>${thicknessList}</td>
+            <td>${i === 0 ? mat.minHeightMM + "mm" : ""}</td>`;
+          body.appendChild(tr);
+        });
+      });
+    }
+
+    function buildPicks() {
+      const wrap = document.getElementById("picksGrid");
+      wrap.innerHTML = "";
+      PICKS.forEach((p, i) => {
+        const mat = MATERIALS[p.material];
+        const card = document.createElement("div");
+        card.className = "pick-card";
+        card.onclick = () => loadPick(i);
+        card.innerHTML = `
+          <div class="pick-word">${p.text}</div>
+          <div class="pick-desc">${p.height}mm ${mat.label} letters, ${p.thickness}mm thick, ${p.colour}.</div>
+          <div class="pick-price">Tap to load into builder &rarr;</div>`;
+        wrap.appendChild(card);
+      });
+    }
+
+    function loadPick(i) {
+      const p = PICKS[i];
+      currentMaterial = p.material;
+      currentColour = p.colour;
+      buildMaterialPills();
+      buildColourSwatches();
+      buildThicknessSelect();
+
+      textLines = [p.text];
+      renderTextLines();
+      document.getElementById("thicknessSelect").value = p.thickness;
+      document.getElementById("heightInput").value = p.height;
+      document.getElementById("fontSelect").value = p.font;
+      document.getElementById("qtyInput").value = p.qty;
+
+      updateAll();
+      document.getElementById("configurator").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function sendQuote(channel) {
+      if (!validateDetails()) {
+        document.querySelector(".details-box").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      const mat = MATERIALS[currentMaterial];
+      const text = textLines.filter(l => l.trim()).join(" / ") || "SIGN";
+      const thickness = document.getElementById("thicknessSelect").value;
+      const height = document.getElementById("heightInput").value;
+      const font = document.getElementById("fontSelect").selectedOptions[0].textContent;
+      const qty = document.getElementById("qtyInput").value;
+      const price = calcPrice();
+
+      const name = document.getElementById("custName").value.trim();
+      const email = document.getElementById("custEmail").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const notes = document.getElementById("custNotes").value.trim();
+      const address = document.getElementById("custAddress").value.trim();
+
+      const lines = [
+        "NEW 3D LETTERS ORDER REQUEST",
+        "",
+        `Text: "${text}"`,
+        `Material: ${mat.label}`,
+        `Thickness: ${thickness}mm`,
+        `Height: ${height}mm`,
+        `Colour: ${currentColour}`,
+        `Font: ${font}`,
+        `Quantity (sets): ${qty}`,
+        `Subtotal (ex GST): ${fmt(price.subtotalExGst)}`,
+        `GST (10%): ${fmt(price.gst)}`,
+        `Estimated total: ${fmt(price.total)} inc GST`,
+        "Note: Paper installation template will be sent with the letters",
+        "",
+        `Name: ${name}`,
+        email ? `Email: ${email}` : null,
+        phone ? `Phone: ${phone}` : null,
+        deliveryMethod === "delivery" ? `Delivery to: ${address}` : "Pickup preferred",
+        notes ? `Notes: ${notes}` : null
+      ].filter(Boolean);
+      const message = lines.join("\n");
+
+      if (channel === "email") {
+        const subject = encodeURIComponent("3D Letters Order \u2013 " + name + " \u2013 " + text);
+        const body = encodeURIComponent(message);
+        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
+      } else {
+        const waText = encodeURIComponent(message);
+        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
+      }
+    }
+
+    // ===== init =====
+    buildMaterialPills();
+    buildColourSwatches();
+    buildThicknessSelect();
+    buildSpecsTable();
+    buildPicks();
+    renderTextLines();
+    updateAll();
+    </script>
+
+    <script>
+    (function() {
+        var dd = document.getElementById("productsDropdown");
+        if (!dd) return;
+        var closeTimer = null;
+
+        dd.addEventListener("mouseenter", function() {
+            clearTimeout(closeTimer);
+            dd.classList.add("open");
+        });
+
+        dd.addEventListener("mouseleave", function() {
+            closeTimer = setTimeout(function() {
+                dd.classList.remove("open");
+            }, 1000);
+        });
+    })();
+    </script>
+</body>
+</html>

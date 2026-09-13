@@ -8,11 +8,41 @@
 <body>
 <header class="header">
 <div class="logo">LED SIGNS AUSTRALIA</div>
-<nav>
+<div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+</div>
+<nav id="navMenu">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="services.html">Services</a>
 <a href="projects.html">Projects</a>
+<div class="nav-dropdown" id="productsDropdown">
+                <a href="products.html" class="nav-dropdown-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-megamenu">
+                    <div class="nav-megamenu-grid">
+                        <a href="3d-cut-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-a"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Cut Letters</strong><span>Dimensional letters in acrylic, metal &amp; more</span></span>
+                        </a>
+                        <a href="3d-illuminated-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Illuminated Letters</strong><span>Front-lit or halo-lit LED letters</span></span>
+                        </a>
+                        <a href="light-box.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-square"></i></span>
+                            <span class="nav-megamenu-text"><strong>Light Box</strong><span>Backlit acrylic-faced panel signs</span></span>
+                        </a>
+                        <a href="home-plates.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nav-megamenu-text"><strong>Home Plates</strong><span>House numbers &amp; street nameplates</span></span>
+                        </a>
+                    </div>
+                    <div class="nav-megamenu-footer">
+                        <a href="products.html">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                        <span>Instant online pricing</span>
+                    </div>
+                </div>
+            </div>
 <a href="contact.html">Contact</a>
 </nav>
 <a href="contact.html" class="quote-btn">Get Free Quote</a>
@@ -94,5 +124,25 @@ referrerpolicy="no-referrer-when-downgrade">
 </div>
 </section>
 
+
+    <script src="mobile-menu.js"></script>
+    <script>
+    (function() {
+        var dd = document.getElementById("productsDropdown");
+        if (!dd) return;
+        var closeTimer = null;
+
+        dd.addEventListener("mouseenter", function() {
+            clearTimeout(closeTimer);
+            dd.classList.add("open");
+        });
+
+        dd.addEventListener("mouseleave", function() {
+            closeTimer = setTimeout(function() {
+                dd.classList.remove("open");
+            }, 1000);
+        });
+    })();
+    </script>
 </body>
 </html>

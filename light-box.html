@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Light Box Signs - Request a Free Quote - LED SIGNS AUSTRALIA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Pacifico&family=Roboto:wght@400;700&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LED SIGNS AUSTRALIA</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <div class="nav-dropdown" id="productsDropdown">
+                <a href="products.html" class="nav-dropdown-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-megamenu">
+                    <div class="nav-megamenu-grid">
+                        <a href="3d-cut-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-a"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Cut Letters</strong><span>Dimensional letters in acrylic, metal &amp; more</span></span>
+                        </a>
+                        <a href="3d-illuminated-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Illuminated Letters</strong><span>Front-lit or halo-lit (back-lit) LED letters</span></span>
+                        </a>
+                        <a href="light-box.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-square"></i></span>
+                            <span class="nav-megamenu-text"><strong>Light Box</strong><span>Backlit acrylic-faced panel signs</span></span>
+                        </a>
+                        <a href="home-plates.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nav-megamenu-text"><strong>Home Plates</strong><span>House numbers &amp; street nameplates</span></span>
+                        </a>
+                    </div>
+                    <div class="nav-megamenu-footer">
+                        <a href="products.html">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                        <span>Free design &amp; quote</span>
+                    </div>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="quote-btn">Get Free Quote</a>
+    </header>
+
+    <section class="page-hero">
+        <h1>Light Box Signs</h1>
+        <p>Bright, backlit signage for shopfronts, menu boards and interiors. Have a look through our work, then send us your details for a free quote.</p>
+    </section>
+
+    <!-- ===== PHOTO GALLERY ===== -->
+    <section class="gallery-section" id="gallerySection">
+        <div class="section-heading">
+            <h2>Photo Gallery</h2>
+            <p>A few examples of our light box signs. Tap any photo to view it larger.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightboxOnOverlay(event)">
+        <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        <button type="button" class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- ===== ENQUIRY FORM ===== -->
+    <section class="enquiry-section" id="enquiryForm">
+        <div class="section-heading">
+            <h2>Get a Free Quote</h2>
+            <p>Just a few details so we can price your sign accurately &mdash; fill in what you can, leave the rest for us to ask about.</p>
+        </div>
+
+        <div class="enquiry-card">
+
+            <!-- Your Sign -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-square"></i> Your Sign</h3>
+
+                <div class="field">
+                    <label for="signText">Sign Text / Wording</label>
+                    <textarea id="signText" rows="2" placeholder="Type exactly what you want the sign to say"></textarea>
+                </div>
+
+                <div class="field checkbox-field">
+                    <label class="checkbox-label"><input type="checkbox" id="logoOnly"> This is a logo / graphic only &mdash; no text</label>
+                </div>
+
+                <div class="field">
+                    <label for="artworkNote">Do you have a logo or artwork file?</label>
+                    <select id="artworkNote">
+                        <option value="Yes, I'll attach it to this email">Yes, I'll attach it to this email</option>
+                        <option value="Yes, I'll send it separately">Yes, I'll send it separately</option>
+                        <option value="No, need design help">No, need design help</option>
+                        <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Size & Details -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-ruler-combined"></i> Size &amp; Details</h3>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="widthPref">Approx. Width (mm)</label>
+                        <div class="field-with-tba">
+                            <input type="number" id="widthPref" min="100" placeholder="e.g. 1000">
+                            <label class="tba-checkbox"><input type="checkbox" id="widthTba" onchange="toggleTba('widthPref','widthTba')"> Not sure (TBA)</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="heightPref">Approx. Height (mm)</label>
+                        <div class="field-with-tba">
+                            <input type="number" id="heightPref" min="100" placeholder="e.g. 500">
+                            <label class="tba-checkbox"><input type="checkbox" id="heightTba" onchange="toggleTba('heightPref','heightTba')"> Not sure (TBA)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="sidesPref">Sides Illuminated</label>
+                        <select id="sidesPref">
+                            <option value="Single-Sided">Single-Sided</option>
+                            <option value="Double-Sided">Double-Sided</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="qtyPref">Quantity</label>
+                        <input type="number" id="qtyPref" min="1" value="1">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="mountPref">Mounting</label>
+                    <select id="mountPref">
+                        <option value="Wall Mounted">Wall Mounted</option>
+                        <option value="Hanging">Hanging</option>
+                        <option value="Freestanding">Freestanding</option>
+                        <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Your Details -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-user"></i> Your Details</h3>
+
+                <div class="field">
+                    <label for="custName">Name <span class="req">*</span></label>
+                    <input type="text" id="custName" placeholder="Your name">
+                    <span class="field-error" id="custNameError"></span>
+                </div>
+
+                <div class="field">
+                    <label for="custBusiness">Business Name (optional)</label>
+                    <input type="text" id="custBusiness" placeholder="If applicable">
+                </div>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="custEmail">Email</label>
+                        <input type="email" id="custEmail" placeholder="you@email.com">
+                    </div>
+                    <div>
+                        <label for="custPhone">Phone</label>
+                        <input type="tel" id="custPhone" placeholder="04xx xxx xxx">
+                    </div>
+                </div>
+                <span class="field-error" id="custContactError"></span>
+                <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+
+                <div class="field">
+                    <label for="installAddress">Installation Suburb / Postcode (optional)</label>
+                    <input type="text" id="installAddress" placeholder="e.g. Boolaroo NSW 2284">
+                </div>
+
+                <div class="field">
+                    <label for="notes">Anything Else We Should Know? (optional)</label>
+                    <textarea id="notes" rows="3" placeholder="Timeframe, budget, site access, colour preference, inspiration links/photos, etc."></textarea>
+                </div>
+            </div>
+
+            <div class="quote-actions">
+                <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry('email')">
+                    <i class="fa-solid fa-envelope"></i> Email My Enquiry
+                </button>
+                <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendEnquiry('whatsapp')">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp My Enquiry
+                </button>
+            </div>
+            <p class="send-hint">We'll review your details and get back to you with a formal quote &mdash; no automatic pricing or payment is taken here.</p>
+
+        </div>
+    </section>
+
+    <!-- ===== WHAT HAPPENS NEXT ===== -->
+    <section class="steps-section">
+        <div class="section-heading">
+            <h2>What Happens Next</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>You Submit Your Details</h3>
+                <p>Send us as much or as little as you know &mdash; anything unclear can just be marked TBA.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>We Review &amp; Cost It</h3>
+                <p>Our team works out the right size, finish and installation approach for your space and budget.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>You Get a Formal Quote</h3>
+                <p>A clear, itemised quote lands in your inbox &mdash; no obligation, no pressure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="section-heading">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>What's the difference between single-sided and double-sided?</summary>
+                <p>Single-sided light boxes are viewed from one direction only, typically wall-mounted. Double-sided boxes are illuminated and printed on both faces &mdash; ideal for hanging or freestanding signs viewed from either direction.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How much does a light box cost?</summary>
+                <p>Pricing depends on size, sides and finish, so we don't publish a fixed online price. Send us your details above and we'll come back with a free, no-obligation quote.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do I need to supply artwork?</summary>
+                <p>Yes &mdash; once you submit your enquiry we'll follow up to collect your logo or graphic files (or help design one) before production begins.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do light boxes need mains power?</summary>
+                <p>Yes, all light boxes need a nearby low-voltage power connection. Let us know in your notes if you're unsure what's available at your site and we'll talk you through it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How long does production take?</summary>
+                <p>Most light box orders are ready in 5&ndash;10 working days after you approve your quote and artwork. We'll confirm a firm timeframe when we send it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is this form a binding order?</summary>
+                <p>No. This sends us an enquiry only. We'll follow up with a formal, itemised quote before anything goes into production.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Have a Question First?</h2>
+        <a href="mailto:info@ledsignsaustralia.com.au" class="quote-btn">Get a Free Consultation</a>
+    </section>
+
+    <!-- ===== SITE FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+
+        <div class="footer-contact">
+          <h3>LED SIGNS AUSTRALIA</h3>
+
+          <div class="footer-item">
+            <span>📧</span>
+            <a href="mailto:info@ledsignsaustralia.com.au">info@ledsignsaustralia.com.au</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61481308955">+61 481 308 955</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61468383437">+61 468 383 437</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📍</span>
+            <p>Unit 6/78 Seventh Street, Boolaroo NSW 2284, Australia</p>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1ZkSF3gi5X/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/led_signs_australia?igsh=MWl4Z3ZxbzA1NTdi&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://share.google/oLgYBgmBVbnNzRLJH" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://wa.me/61481308955" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com/@ledsignsaustralia-pse?si=Vr0nA9Z8hgm8R8EG" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <p class="footer-copy">&copy; 2026 LED Signs Australia. All rights reserved.</p>
+        </div>
+
+        <div class="footer-map">
+          <iframe
+          src="https://www.google.com/maps?q=Unit+6/78+Seventh+Street,+Boolaroo+NSW+2284,+Australia&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius:8px; min-height:220px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </footer>
+
+    <style>
+    /* ===== Footer ===== */
+    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
+    .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
+    .footer-item a { color:#fff; text-decoration:none; }
+    .footer-item a:hover { text-decoration:underline; }
+    .footer-item p { margin:0; }
+    .footer-social { display:flex; gap:10px; margin:18px 0; }
+    .footer-social a { width:40px; height:40px; border-radius:50%; background:#ffffff15; display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none; font-size:17px; }
+    .footer-social a:hover { background:#ffffff30; }
+    .footer-copy { font-size:14px; color:#e5e5e5; margin-top:24px; }
+    .footer-map { min-height:220px; height:100%; }
+    @media (max-width:700px){ .footer-inner{ grid-template-columns:1fr; } .footer-map{ height:220px; } }
+    .final-cta { margin-bottom: 0 !important; }
+
+    /* ===== Shared section styling ===== */
+    .section-heading { max-width:700px; margin:0 auto 30px; text-align:center; padding:0 20px; }
+    .section-heading h2 { font-size:30px; font-weight:800; color:#1a1a1a; margin-bottom:8px; }
+    .section-heading p { color:#555; font-size:15.5px; line-height:1.5; }
+
+    /* ===== Photo gallery (same look as the Projects page gallery) ===== */
+    .gallery-section { max-width:1150px; margin:50px auto; padding:0 20px; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; }
+    .gallery-tile {
+      position:relative; height:260px; border-radius:8px; overflow:hidden;
+      cursor:zoom-in; background:#f2f2f2; border:1px solid #eee;
+      transition:transform .15s ease;
+    }
+    .gallery-tile img { width:100%; height:100%; object-fit:contain; display:block; background:#f2f2f2; }
+    .gallery-tile:hover { transform:scale(1.03); }
+    .gallery-tile-placeholder {
+      width:100%; height:100%; display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:8px; color:#9aa2ab; font-size:12px; text-align:center; padding:10px;
+    }
+    .gallery-tile-placeholder i { font-size:22px; }
+    @media (max-width:560px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+
+    .lightbox-overlay {
+      position:fixed; inset:0; background:rgba(10,12,16,0.92); display:none;
+      align-items:center; justify-content:center; z-index:9999; flex-direction:column; padding:30px;
+    }
+    .lightbox-overlay.open { display:flex; }
+    .lightbox-image {
+      width:75vw; height:75vh; max-width:75vw; max-height:75vh;
+      object-fit:contain; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.5); background:#fff;
+    }
+    .lightbox-caption { color:#fff; margin-top:16px; font-size:14px; opacity:.85; }
+    .lightbox-close {
+      position:absolute; top:20px; right:26px; background:none; border:none;
+      color:#fff; font-size:34px; line-height:1; cursor:pointer;
+    }
+    .lightbox-nav {
+      position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.12);
+      border:none; color:#fff; width:46px; height:46px; border-radius:50%; font-size:18px;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.15s;
+    }
+    .lightbox-nav:hover { background:rgba(255,255,255,0.25); }
+    .lightbox-prev { left:20px; }
+    .lightbox-next { right:20px; }
+    @media (max-width:600px){ .lightbox-nav{ width:38px; height:38px; font-size:15px; } .lightbox-prev{left:8px;} .lightbox-next{right:8px;} }
+
+    /* ===== Enquiry form ===== */
+    .enquiry-section { max-width:850px; margin:60px auto; padding:0 20px; }
+    .enquiry-card {
+      background:#f7f8fa; border:1px solid #e6e8ec; border-radius:16px;
+      padding:32px; display:flex; flex-direction:column; gap:28px;
+    }
+    .form-section { display:flex; flex-direction:column; gap:16px; }
+    .form-section h3 {
+      font-size:16px; font-weight:800; color:#1a1a1a; margin:0 0 2px;
+      display:flex; align-items:center; gap:10px;
+      padding-bottom:10px; border-bottom:1px solid #e0e3e8;
+    }
+    .form-section h3 i { color:#4878c7; font-size:15px; }
+
+    .field label { display:block; font-size:13.5px; font-weight:700; color:#333; margin-bottom:6px; }
+    .field input[type=text], .field input[type=number], .field input[type=email],
+    .field input[type=tel], .field select, .field textarea {
+      width:100%; padding:10px 12px; border:1px solid #d7dbe0; border-radius:8px;
+      font-size:15px; background:#fff; color:#1a1a1a; font-family:inherit;
+    }
+    .field textarea { resize:vertical; min-height:60px; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
+    .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .req { color:#c8202f; }
+    .field-error { display:block; font-size:12.5px; color:#c8202f; margin-top:4px; min-height:0; }
+    .field.has-error input, .field.has-error select { border-color:#c8202f; }
+
+    .checkbox-field { margin-top:-4px; }
+    .checkbox-label { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#444; cursor:pointer; }
+    .checkbox-label input { width:auto; margin:0; }
+
+    .field-with-tba { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .field-with-tba input[type=text], .field-with-tba input[type=number] { flex:1; min-width:150px; }
+    .tba-checkbox { display:flex; align-items:center; gap:6px; font-size:12.5px; color:#666; white-space:nowrap; cursor:pointer; }
+    .tba-checkbox input { width:auto; margin:0; }
+
+    .quote-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .quote-action-btn {
+      flex:1; min-width:180px; border:none; border-radius:8px; padding:13px 16px;
+      font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
+      justify-content:center; gap:8px; transition:.15s;
+    }
+    .email-btn { background:#4878c7; color:#fff; }
+    .email-btn:hover { background:#3a63a8; }
+    .whatsapp-btn { background:#25d366; color:#fff; }
+    .whatsapp-btn:hover { background:#1fb959; }
+    .send-hint { font-size:12px; color:#888; text-align:center; margin:0; }
+
+    /* ===== Steps ===== */
+    .steps-section { max-width:1100px; margin:60px auto; padding:0 20px; }
+    .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .step-card {
+      background:#fff; border:1px solid #e6e8ec; border-radius:12px; padding:26px 22px;
+      text-align:center;
+    }
+    .step-number {
+      width:38px; height:38px; border-radius:50%; background:#4878c7; color:#fff;
+      display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px;
+      margin:0 auto 14px;
+    }
+    .step-card h3 { font-size:17px; color:#1a1a1a; margin:0 0 8px; }
+    .step-card p { font-size:14px; color:#666; line-height:1.55; margin:0; }
+    @media (max-width:850px) { .steps-grid { grid-template-columns:1fr; } }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width:800px; margin:60px auto; padding:0 20px; }
+    .faq-list { display:flex; flex-direction:column; gap:10px; }
+    .faq-item { background:#f7f8fa; border:1px solid #e6e8ec; border-radius:10px; padding:14px 18px; }
+    .faq-item summary { cursor:pointer; font-weight:700; color:#1a1a1a; font-size:15.5px; }
+    .faq-item p { margin:10px 0 2px; color:#555; font-size:14.5px; line-height:1.6; }
+
+    @media (max-width:600px) {
+      .field-half { grid-template-columns:1fr; }
+      .enquiry-card { padding:22px; }
+    }
+    </style>
+    <!-- ===== END SITE FOOTER ===== -->
+
+    <script src="mobile-menu.js"></script>
+    <script>
+    // ============================================================
+    // PHOTO GALLERY
+    // Real photos live at images/gallery/light-box/1.jpg, 2.jpg, etc.
+    // Until a photo is uploaded at that path, its tile shows a
+    // "Photo coming soon" placeholder instead of a broken image.
+    // ============================================================
+    const GALLERY_SLUG = "light-box";
+    const GALLERY_PHOTO_COUNT = 8;
+    let currentGalleryImages = [];
+    let lightboxIndex = 0;
+
+    function buildGalleryGrid() {
+      const grid = document.getElementById("galleryGrid");
+      grid.innerHTML = "";
+      currentGalleryImages = [];
+
+      for (let i = 1; i <= GALLERY_PHOTO_COUNT; i++) {
+        const src = `images/gallery/${GALLERY_SLUG}/${i}.jpg`;
+        currentGalleryImages.push({ src, caption: `Light Box \u2014 ${i} / ${GALLERY_PHOTO_COUNT}` });
+
+        const tile = document.createElement("div");
+        tile.className = "gallery-tile";
+        const tileIndex = i - 1;
+        tile.onclick = () => openLightbox(tileIndex);
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Light box sign example ${i}`;
+        img.loading = "lazy";
+        img.onerror = function() {
+          tile.onclick = null;
+          tile.style.cursor = "default";
+          tile.innerHTML = '<div class="gallery-tile-placeholder"><i class="fa-solid fa-image"></i><span>Photo coming soon</span></div>';
+        };
+        tile.appendChild(img);
+        grid.appendChild(tile);
+      }
+    }
+
+    function openLightbox(index) {
+      const item = currentGalleryImages[index];
+      if (!item) return;
+      lightboxIndex = index;
+      const img = document.getElementById("lightboxImage");
+      img.onerror = () => closeLightbox();
+      img.src = item.src;
+      document.getElementById("lightboxCaption").textContent = item.caption;
+      document.getElementById("lightboxOverlay").classList.add("open");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightboxOverlay").classList.remove("open");
+    }
+
+    function closeLightboxOnOverlay(e) {
+      if (e.target.id === "lightboxOverlay") closeLightbox();
+    }
+
+    function navLightbox(dir) {
+      let next = lightboxIndex + dir;
+      if (next < 0) next = currentGalleryImages.length - 1;
+      if (next >= currentGalleryImages.length) next = 0;
+      openLightbox(next);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      const overlay = document.getElementById("lightboxOverlay");
+      if (!overlay.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") navLightbox(-1);
+      if (e.key === "ArrowRight") navLightbox(1);
+    });
+
+    // ============================================================
+    // TBA TOGGLE HELPER
+    // ============================================================
+    function toggleTba(fieldId, checkboxId) {
+      const field = document.getElementById(fieldId);
+      const checked = document.getElementById(checkboxId).checked;
+      field.disabled = checked;
+      if (checked) {
+        field.dataset.prevValue = field.value;
+        field.value = "";
+        field.placeholder = "TBA \u2014 not sure yet";
+      } else {
+        field.value = field.dataset.prevValue || "";
+      }
+    }
+
+    function fieldOrTba(fieldId, checkboxId) {
+      const field = document.getElementById(fieldId);
+      const tbaChecked = checkboxId ? document.getElementById(checkboxId).checked : false;
+      if (tbaChecked) return "TBA";
+      const val = field.value.trim();
+      return val ? val : "TBA";
+    }
+
+    // ============================================================
+    // VALIDATION
+    // ============================================================
+    function clearFieldError(el) {
+      el.closest(".field")?.classList.remove("has-error");
+      const errEl = document.getElementById(el.id + "Error");
+      if (errEl) errEl.textContent = "";
+      const contactErr = document.getElementById("custContactError");
+      if (contactErr && (el.id === "custEmail" || el.id === "custPhone")) contactErr.textContent = "";
+    }
+
+    function validateForm() {
+      let ok = true;
+      const name = document.getElementById("custName");
+      const email = document.getElementById("custEmail");
+      const phone = document.getElementById("custPhone");
+
+      if (!name.value.trim()) {
+        name.closest(".field").classList.add("has-error");
+        document.getElementById("custNameError").textContent = "Please enter your name.";
+        ok = false;
+      }
+      if (!email.value.trim() && !phone.value.trim()) {
+        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
+        ok = false;
+      }
+      return ok;
+    }
+
+    ["custName", "custEmail", "custPhone"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("input", () => clearFieldError(el));
+    });
+
+    // ============================================================
+    // SEND ENQUIRY
+    // ============================================================
+    function sendEnquiry(channel) {
+      if (!validateForm()) {
+        document.querySelector(".enquiry-card").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      const logoOnly = document.getElementById("logoOnly").checked;
+      const signText = logoOnly ? "(Logo/graphic only, no text)" : (document.getElementById("signText").value.trim() || "TBA");
+      const artworkNote = document.getElementById("artworkNote").value;
+      const widthPref = fieldOrTba("widthPref", "widthTba");
+      const heightPref = fieldOrTba("heightPref", "heightTba");
+      const sidesPref = document.getElementById("sidesPref").value;
+      const qtyPref = document.getElementById("qtyPref").value || "1";
+      const mountPref = document.getElementById("mountPref").value;
+      const installAddress = document.getElementById("installAddress").value.trim();
+      const notes = document.getElementById("notes").value.trim();
+
+      const name = document.getElementById("custName").value.trim();
+      const business = document.getElementById("custBusiness").value.trim();
+      const email = document.getElementById("custEmail").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+
+      const lines = [
+        "NEW LIGHT BOX ENQUIRY",
+        "",
+        `Sign Text: ${signText}`,
+        `Artwork: ${artworkNote}`,
+        `Approx. Size: ${widthPref}${widthPref !== "TBA" ? "mm" : ""} W \u00d7 ${heightPref}${heightPref !== "TBA" ? "mm" : ""} H`,
+        `Sides Illuminated: ${sidesPref}`,
+        `Quantity: ${qtyPref}`,
+        `Mounting: ${mountPref}`,
+        installAddress ? `Install Location: ${installAddress}` : null,
+        notes ? `Notes: ${notes}` : null,
+        "",
+        `Name: ${name}`,
+        business ? `Business: ${business}` : null,
+        email ? `Email: ${email}` : null,
+        phone ? `Phone: ${phone}` : null
+      ].filter(Boolean);
+      const message = lines.join("\n");
+
+      if (channel === "email") {
+        const subject = encodeURIComponent("Light Box Enquiry \u2013 " + name);
+        const body = encodeURIComponent(message);
+        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
+      } else {
+        const waText = encodeURIComponent(message);
+        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
+      }
+    }
+
+    // ===== init =====
+    buildGalleryGrid();
+    </script>
+
+    <script>
+    (function() {
+        var dd = document.getElementById("productsDropdown");
+        if (!dd) return;
+        var closeTimer = null;
+
+        dd.addEventListener("mouseenter", function() {
+            clearTimeout(closeTimer);
+            dd.classList.add("open");
+        });
+
+        dd.addEventListener("mouseleave", function() {
+            closeTimer = setTimeout(function() {
+                dd.classList.remove("open");
+            }, 1000);
+        });
+    })();
+    </script>
+</body>
+</html>

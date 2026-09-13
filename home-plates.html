@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Plates - Request a Free Design & Quote - LED SIGNS AUSTRALIA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Pacifico&family=Roboto:wght@400;700&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LED SIGNS AUSTRALIA</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <div class="nav-dropdown" id="productsDropdown">
+                <a href="products.html" class="nav-dropdown-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-megamenu">
+                    <div class="nav-megamenu-grid">
+                        <a href="3d-cut-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-a"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Cut Letters</strong><span>Dimensional letters in acrylic, metal &amp; more</span></span>
+                        </a>
+                        <a href="3d-illuminated-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Illuminated Letters</strong><span>Front-lit or halo-lit LED letters</span></span>
+                        </a>
+                        <a href="light-box.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-square"></i></span>
+                            <span class="nav-megamenu-text"><strong>Light Box</strong><span>Backlit acrylic-faced panel signs</span></span>
+                        </a>
+                        <a href="home-plates.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nav-megamenu-text"><strong>Home Plates</strong><span>House numbers &amp; street nameplates</span></span>
+                        </a>
+                    </div>
+                    <div class="nav-megamenu-footer">
+                        <a href="products.html">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                        <span>Free design &amp; quote</span>
+                    </div>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="quote-btn">Get Free Quote</a>
+    </header>
+
+    <section class="page-hero">
+        <h1>Home Plates</h1>
+        <p>Tell us about your entrance and the look you're after &mdash; we'll put together a free mock-up and quote for hundreds of designs, themes, colours and patterns.</p>
+    </section>
+
+    <!-- ===== DESIGN INSPIRATION GALLERY ===== -->
+    <section class="inspo-section">
+        <div class="section-heading">
+            <h2>A Few of Our Designs</h2>
+            <p>Tap any styles you love &mdash; it helps us understand your taste. This is just a small sample; we have hundreds more in our full catalogue.</p>
+        </div>
+        <div class="inspo-grid" id="inspoGrid"></div>
+    </section>
+
+    <!-- ===== ENQUIRY FORM ===== -->
+    <section class="configurator" id="configurator">
+        <div class="configurator-inner">
+            <div class="options-col options-col-full">
+
+                <div class="form-section-title">
+                    <span class="form-step">1</span> What should it say?
+                </div>
+
+                <div class="field">
+                    <label for="textInput">House Number / Street Name</label>
+                    <input type="text" id="textInput" maxlength="40" placeholder="e.g. 42 or 42 Seventh Street">
+                    <span class="field-hint">Include your number, street name, or both &mdash; whatever you'd like shown.</span>
+                </div>
+
+                <div class="form-section-title">
+                    <span class="form-step">2</span> Size &amp; format
+                </div>
+
+                <div class="field">
+                    <label>Approximate Size</label>
+                    <div class="pill-group" id="sizeGroup"></div>
+                    <span class="field-hint" id="sizeHint"></span>
+                </div>
+
+                <div class="field">
+                    <label>Plate Style</label>
+                    <div class="pill-group" id="styleGroup"></div>
+                </div>
+
+                <div class="form-section-title">
+                    <span class="form-step">3</span> Finish &amp; lighting
+                </div>
+
+                <div class="field">
+                    <label>Background Material</label>
+                    <div class="pill-group" id="materialGroup"></div>
+                </div>
+
+                <div class="field">
+                    <label>Would you like LED backlighting?</label>
+                    <div class="pill-group" id="backlitGroup"></div>
+                </div>
+
+                <div class="field" id="colourField">
+                    <label>Preferred LED Colour</label>
+                    <div class="swatch-group" id="colourGroup"></div>
+                </div>
+
+                <div class="field">
+                    <label>Mounting Preference</label>
+                    <div class="pill-group" id="mountGroup"></div>
+                </div>
+
+                <div class="form-section-title">
+                    <span class="form-step">4</span> Style details
+                </div>
+
+                <div class="field">
+                    <label for="fontSelect">Preferred Font (optional)</label>
+                    <select id="fontSelect">
+                        <option value="No preference" selected>No preference &mdash; surprise us</option>
+                        <option value="Archivo">Archivo (clean &amp; modern)</option>
+                        <option value="Arial">Arial (classic sans-serif)</option>
+                        <option value="Bebas Neue">Bebas Neue (bold condensed)</option>
+                        <option value="Poppins">Poppins (rounded modern)</option>
+                        <option value="Playfair Display">Playfair Display (elegant serif)</option>
+                        <option value="Merriweather">Merriweather (traditional serif)</option>
+                        <option value="Roboto">Roboto (neutral sans-serif)</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="motifInput">Theme, Motif or Icon (optional)</label>
+                    <input type="text" id="motifInput" placeholder="e.g. kangaroo, palm tree, geometric pattern, sports team">
+                    <span class="field-hint">Have an animal, plant, sport or pattern in mind? Let us know &mdash; we can custom-cut almost anything.</span>
+                </div>
+
+                <div class="field">
+                    <label for="qtyInput">Quantity</label>
+                    <input type="number" id="qtyInput" value="1" min="1" step="1">
+                </div>
+
+                <div class="info-box">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <p>Every enquiry includes a <strong>free mock-up</strong> of your design and a <strong>free installation quote</strong>. We also offer non-illuminated house plates and fully custom sizes on request, with <strong>free nationwide shipping</strong> Australia-wide.</p>
+                </div>
+
+                <div class="form-section-title">
+                    <span class="form-step">5</span> Your details
+                </div>
+
+                <div class="details-box">
+
+                    <div class="field">
+                        <label for="custName">Name <span class="req">*</span></label>
+                        <input type="text" id="custName" placeholder="Your name" oninput="clearFieldError(this)">
+                        <span class="field-error" id="custNameError"></span>
+                    </div>
+
+                    <div class="field field-half">
+                        <div>
+                            <label for="custEmail">Email</label>
+                            <input type="email" id="custEmail" placeholder="you@email.com" oninput="clearFieldError(this)">
+                        </div>
+                        <div>
+                            <label for="custPhone">Phone</label>
+                            <input type="tel" id="custPhone" placeholder="04xx xxx xxx" oninput="clearFieldError(this)">
+                        </div>
+                    </div>
+                    <span class="field-error" id="custContactError"></span>
+                    <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+
+                    <div class="field">
+                        <label>How would you like your order?</label>
+                        <div class="pill-group">
+                            <button type="button" class="pill-btn active" id="deliveryBtn" onclick="setDeliveryMethod('delivery', this)">Delivery</button>
+                            <button type="button" class="pill-btn" id="pickupBtn" onclick="setDeliveryMethod('pickup', this)">Pickup</button>
+                        </div>
+                    </div>
+
+                    <div class="field" id="addressField">
+                        <label for="custAddress">Suburb / Postcode <span class="req">*</span></label>
+                        <input type="text" id="custAddress" placeholder="e.g. Boolaroo NSW 2284" oninput="clearFieldError(this)">
+                        <span class="field-error" id="custAddressError"></span>
+                        <span class="field-hint">Helps us confirm shipping and give you an accurate quote.</span>
+                    </div>
+
+                    <div class="field">
+                        <label for="custNotes">Anything else we should know? (optional)</label>
+                        <input type="text" id="custNotes" placeholder="Wall type, timeframe, budget range, inspiration links, etc.">
+                    </div>
+                </div>
+
+                <div class="quote-actions">
+                    <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry('email')">
+                        <i class="fa-solid fa-envelope"></i> Email My Enquiry
+                    </button>
+                    <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendEnquiry('whatsapp')">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp My Enquiry
+                    </button>
+                </div>
+                <p class="send-hint">This sends your preferences and contact details straight to us. We'll follow up with a free mock-up, material advice and a formal quote &mdash; no payment or commitment required.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SPECS TABLE ===== -->
+    <section class="specs-section">
+        <div class="section-heading">
+            <h2>Material &amp; Style Specifications</h2>
+        </div>
+        <div class="specs-table-wrap">
+            <table class="specs-table">
+                <thead>
+                    <tr><th>Material</th><th>Plate Style</th><th>Backlighting Available</th><th>Notes</th></tr>
+                </thead>
+                <tbody id="specsTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="section-heading">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>How much do home plates cost?</summary>
+                <p>Pricing depends on size, material, lighting and complexity of the design, so we don't publish a fixed online price. Send us your details above and we'll come back with a free, no-obligation quote and mock-up.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What's the difference between the plate styles?</summary>
+                <p>Floating Plate stands slightly off the wall on hidden studs, casting a soft shadow line for a premium architectural look. Flush Plate mounts directly against the wall for a clean, minimal finish.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Does the LED backlighting need a separate transformer?</summary>
+                <p>Yes &mdash; backlit plates require a small low-voltage transformer, which is <strong>sold separately</strong>. We'll confirm the right size and include it in your quote if needed.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I get a custom shape, animal or pattern?</summary>
+                <p>Absolutely &mdash; koalas, kangaroos, palm trees, sports themes, geometric patterns and fully custom artwork are all possible. Just describe what you're after in the "Theme, Motif or Icon" field and we'll design around it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I get a non-illuminated house plate or a custom size?</summary>
+                <p>Yes &mdash; we make non-illuminated plates and fully custom dimensions too. Select "Custom Size" above or mention it in your notes and we'll quote accordingly.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I install my plate?</summary>
+                <p>We provide a <strong>paper installation template</strong> matched to your exact plate, showing the correct position for every mounting point &mdash; making it easy to install straight and level.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How long does production take?</summary>
+                <p>Most home plate orders are ready in 5&ndash;7 working days after you approve your quote. We'll confirm a firm timeframe when we send it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do you ship Australia-wide?</summary>
+                <p>Yes &mdash; we offer free nationwide shipping on home plates.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Give Your Entrance a Premium Finish</h2>
+        <a href="mailto:info@ledsignsaustralia.com.au" class="quote-btn">Get a Free Consultation</a>
+    </section>
+
+    <!-- ===== SITE FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+
+        <div class="footer-contact">
+          <h3>LED SIGNS AUSTRALIA</h3>
+
+          <div class="footer-item">
+            <span>📧</span>
+            <a href="mailto:info@ledsignsaustralia.com.au">info@ledsignsaustralia.com.au</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61481308955">+61 481 308 955</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61468383437">+61 468 383 437</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📍</span>
+            <p>Unit 6/78 Seventh Street, Boolaroo NSW 2284, Australia</p>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1ZkSF3gi5X/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/led_signs_australia?igsh=MWl4Z3ZxbzA1NTdi&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://share.google/oLgYBgmBVbnNzRLJH" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://wa.me/61481308955" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com/@ledsignsaustralia-pse?si=Vr0nA9Z8hgm8R8EG" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <p class="footer-copy">&copy; 2026 LED Signs Australia. All rights reserved.</p>
+        </div>
+
+        <div class="footer-map">
+          <iframe
+          src="https://www.google.com/maps?q=Unit+6/78+Seventh+Street,+Boolaroo+NSW+2284,+Australia&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius:8px; min-height:220px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </footer>
+
+    <style>
+    /* ===== Footer ===== */
+    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
+    .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
+    .footer-item a { color:#fff; text-decoration:none; }
+    .footer-item a:hover { text-decoration:underline; }
+    .footer-item p { margin:0; }
+    .footer-social { display:flex; gap:10px; margin:18px 0; }
+    .footer-social a { width:40px; height:40px; border-radius:50%; background:#ffffff15; display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none; font-size:17px; }
+    .footer-social a:hover { background:#ffffff30; }
+    .footer-copy { font-size:14px; color:#e5e5e5; margin-top:24px; }
+    .footer-map { min-height:220px; height:100%; }
+    @media (max-width:700px){ .footer-inner{ grid-template-columns:1fr; } .footer-map{ height:220px; } }
+    .final-cta { margin-bottom: 0 !important; }
+
+    /* ===== Shared section styling ===== */
+    .section-heading { max-width:700px; margin:0 auto 30px; text-align:center; padding:0 20px; }
+    .section-heading h2 { font-size:30px; font-weight:800; color:#1a1a1a; margin-bottom:8px; }
+    .section-heading p { color:#555; font-size:15.5px; line-height:1.5; }
+
+    /* ===== Design inspiration gallery ===== */
+    .inspo-section { max-width:1150px; margin:50px auto 0; padding:0 20px; }
+    .inspo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .inspo-card {
+      position:relative; border-radius:12px; overflow:hidden; cursor:pointer;
+      border:3px solid transparent; background:#eee; aspect-ratio:343/228;
+      transition:.15s; box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+    .inspo-card img { width:100%; height:100%; object-fit:cover; display:block; }
+    .inspo-card:hover { transform:translateY(-3px); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
+    .inspo-card.selected { border-color:#4878c7; }
+    .inspo-check {
+      position:absolute; top:8px; right:8px; width:26px; height:26px; border-radius:50%;
+      background:#fff; border:2px solid #d7dbe0; display:flex; align-items:center; justify-content:center;
+      font-size:13px; color:transparent; transition:.15s;
+    }
+    .inspo-card.selected .inspo-check { background:#4878c7; border-color:#4878c7; color:#fff; }
+    .inspo-label {
+      position:absolute; bottom:0; left:0; right:0; padding:6px 10px 7px;
+      background:linear-gradient(0deg, rgba(0,0,0,0.65), transparent);
+      color:#fff; font-size:12.5px; font-weight:700;
+    }
+    @media (max-width:850px){ .inspo-grid{ grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:560px){ .inspo-grid{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:600px) {
+      .field-half { grid-template-columns:1fr; }
+      .configurator-inner { padding:22px; }
+    }
+
+    /* ===== Configurator / enquiry form ===== */
+    .configurator { max-width:850px; margin:50px auto; padding:0 20px; }
+    .configurator-inner {
+      background:#f7f8fa;
+      border:1px solid #e6e8ec;
+      border-radius:16px;
+      padding:32px;
+    }
+    .options-col-full { display:flex; flex-direction:column; gap:18px; }
+
+    .form-section-title {
+      display:flex; align-items:center; gap:10px; font-size:16.5px; font-weight:800;
+      color:#1a1a1a; margin-top:14px; padding-top:14px; border-top:1px solid #e6e8ec;
+    }
+    .form-section-title:first-child { margin-top:0; padding-top:0; border-top:none; }
+    .form-step {
+      width:26px; height:26px; border-radius:50%; background:#4878c7; color:#fff;
+      font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    }
+
+    .field label { display:block; font-size:13.5px; font-weight:700; color:#333; margin-bottom:6px; }
+    .field input[type=text], .field input[type=number], .field input[type=email], .field input[type=tel], .field select {
+      width:100%; padding:10px 12px; border:1px solid #d7dbe0; border-radius:8px;
+      font-size:15px; background:#fff; color:#1a1a1a;
+    }
+    .field input:focus, .field select:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
+    .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+    .pill-group { display:flex; flex-wrap:wrap; gap:8px; }
+    .pill-btn {
+      border:1px solid #d7dbe0; background:#fff; color:#333; font-size:13.5px;
+      padding:8px 14px; border-radius:20px; cursor:pointer; transition:.15s;
+    }
+    .pill-btn.active { background:#4878c7; color:#fff; border-color:#4878c7; }
+
+    .swatch-group { display:flex; flex-wrap:wrap; gap:10px; }
+    .swatch-btn {
+      width:34px; height:34px; border-radius:50%; cursor:pointer;
+      border:2px solid transparent; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15);
+      position:relative;
+    }
+    .swatch-btn.active { border-color:#4878c7; box-shadow:0 0 0 3px rgba(72,120,199,0.25); }
+
+    .info-box {
+      display:flex; gap:12px; align-items:flex-start; background:#eef3fc; border:1px solid #cfdcf3;
+      border-radius:10px; padding:14px 16px; font-size:13.5px; color:#2c476e; line-height:1.6;
+    }
+    .info-box i { margin-top:2px; color:#4878c7; }
+    .info-box p { margin:0; }
+
+    .details-box { background:#fff; border:1px solid #e6e8ec; border-radius:10px; padding:18px; display:flex; flex-direction:column; gap:14px; }
+    .req { color:#c8202f; }
+    .field-error { display:block; font-size:12.5px; color:#c8202f; margin-top:4px; min-height:0; }
+    .field.has-error input { border-color:#c8202f; }
+    .send-hint { font-size:12px; color:#888; text-align:center; margin:0; }
+
+    .quote-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .quote-action-btn {
+      flex:1; min-width:180px; border:none; border-radius:8px; padding:13px 16px;
+      font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
+      justify-content:center; gap:8px; transition:.15s;
+    }
+    .email-btn { background:#4878c7; color:#fff; }
+    .email-btn:hover { background:#3a63a8; }
+    .whatsapp-btn { background:#25d366; color:#fff; }
+    .whatsapp-btn:hover { background:#1fb959; }
+
+    /* ===== Specs table ===== */
+    .specs-section { max-width:1100px; margin:60px auto; padding:0 20px; }
+    .specs-table-wrap { overflow-x:auto; border:1px solid #e6e8ec; border-radius:10px; }
+    .specs-table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; }
+    .specs-table thead th { background:#4878c7; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
+    .specs-table tbody td { padding:14px 18px; border-top:1px solid #e6e8ec; color:#333; }
+    .specs-table tbody tr:nth-child(even) { background:#f7f8fa; }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width:800px; margin:60px auto; padding:0 20px; }
+    .faq-list { display:flex; flex-direction:column; gap:10px; }
+    .faq-item { background:#f7f8fa; border:1px solid #e6e8ec; border-radius:10px; padding:14px 18px; }
+    .faq-item summary { cursor:pointer; font-weight:700; color:#1a1a1a; font-size:15.5px; }
+    .faq-item p { margin:10px 0 2px; color:#555; font-size:14.5px; line-height:1.6; }
+    </style>
+    <!-- ===== END SITE FOOTER ===== -->
+
+    <script src="mobile-menu.js"></script>
+    <script>
+    // ============================================================
+    // HOME PLATES ENQUIRY FORM
+    // No pricing / no live preview — purely collects the customer's
+    // design preferences and contact details, then sends them to
+    // the business via email or WhatsApp for a manual quote.
+    // ============================================================
+
+    const SIZES = {
+      small:  { label: "2 Number Sign", dims: "300 \u00d7 150mm \u2014 ideal for a letterbox or entry number" },
+      medium: { label: "Name Plate \u2014 Medium", dims: "400 \u00d7 200mm \u2014 house number plus street name" },
+      large:  { label: "Name Plate \u2014 Large", dims: "600 \u00d7 300mm \u2014 a bold statement for bigger entrances" },
+      custom: { label: "Custom Size", dims: "Tell us your ideal dimensions in the notes below" }
+    };
+
+    const STYLES = {
+      floating: { label: "Floating Plate" },
+      flush:    { label: "Flush Plate" }
+    };
+
+    const MATERIALS = {
+      acrylic:   { label: "Acrylic", backlitOk: true },
+      aluminium: { label: "Brushed Aluminium", backlitOk: true },
+      stainless: { label: "Stainless Steel", backlitOk: true }
+    };
+
+    const BACKLIT = {
+      yes: { label: "Yes, please" },
+      no:  { label: "No thanks" },
+      unsure: { label: "Not sure \u2014 advise me" }
+    };
+
+    const MOUNTS = {
+      stud:  { label: "Hidden Stud Mount" },
+      screw: { label: "Surface Screw Mount" },
+      unsure:{ label: "Not sure \u2014 advise me" }
+    };
+
+    const COLOURS = [
+      { name: "Warm White", hex: "#ffd699" },
+      { name: "Cool White", hex: "#eaf4ff" },
+      { name: "Soft Amber", hex: "#ffb347" },
+      { name: "Red", hex: "#e6402f" },
+      { name: "Blue", hex: "#3a63c9" }
+    ];
+
+    const THEMES = [
+      { key: "red-pattern",       label: "Fan Pattern",     img: "images/home-plates/red-pattern.jpg" },
+      { key: "palm-tree",         label: "Palm Tree",       img: "images/home-plates/palm-tree.jpg" },
+      { key: "koala",             label: "Koala",           img: "images/home-plates/koala.jpg" },
+      { key: "street-name-plain", label: "Plain / Minimal", img: "images/home-plates/street-name-plain.jpg" },
+      { key: "zigzag-pattern",    label: "Zigzag Pattern",  img: "images/home-plates/zigzag-pattern.jpg" },
+      { key: "football",         label: "Sports Theme",    img: "images/home-plates/football.jpg" },
+      { key: "kangaroo",         label: "Kangaroo",        img: "images/home-plates/kangaroo.jpg" },
+      { key: "beach-scene",      label: "Beach Scene",     img: "images/home-plates/beach-scene.jpg" },
+      { key: "yellow-triangle",  label: "Triangle Pattern",img: "images/home-plates/yellow-triangle.jpg" },
+      { key: "sydney-opera",     label: "Sydney Opera House", img: "images/home-plates/sydney-opera.jpg" },
+      { key: "ostrich",          label: "Ostrich",          img: "images/home-plates/ostrich.jpg" },
+      { key: "cat-nameplate",    label: "Custom Character", img: "images/home-plates/cat-nameplate.jpg" }
+    ];
+
+    let currentSize = "small";
+    let currentStyle = "floating";
+    let currentMaterial = "aluminium";
+    let currentBacklit = "unsure";
+    let currentMount = "unsure";
+    let currentColour = COLOURS[0].name;
+    let deliveryMethod = "delivery";
+    let selectedThemes = [];
+
+    function setDeliveryMethod(mode, btn) {
+      deliveryMethod = mode;
+      document.getElementById("deliveryBtn").classList.toggle("active", mode === "delivery");
+      document.getElementById("pickupBtn").classList.toggle("active", mode === "pickup");
+      document.getElementById("addressField").style.display = mode === "delivery" ? "block" : "none";
+      clearFieldError(document.getElementById("custAddress"));
+    }
+
+    function clearFieldError(el) {
+      el.closest(".field")?.classList.remove("has-error");
+      const errEl = document.getElementById(el.id + "Error");
+      if (errEl) errEl.textContent = "";
+      const contactErr = document.getElementById("custContactError");
+      if (contactErr && (el.id === "custEmail" || el.id === "custPhone")) contactErr.textContent = "";
+    }
+
+    function validateDetails() {
+      let ok = true;
+      const name = document.getElementById("custName");
+      const email = document.getElementById("custEmail");
+      const phone = document.getElementById("custPhone");
+      const address = document.getElementById("custAddress");
+
+      if (!name.value.trim()) {
+        name.closest(".field").classList.add("has-error");
+        document.getElementById("custNameError").textContent = "Please enter your name.";
+        ok = false;
+      }
+      if (!email.value.trim() && !phone.value.trim()) {
+        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
+        ok = false;
+      }
+      if (deliveryMethod === "delivery" && !address.value.trim()) {
+        address.closest(".field").classList.add("has-error");
+        document.getElementById("custAddressError").textContent = "Please enter a suburb or postcode.";
+        ok = false;
+      }
+      return ok;
+    }
+
+    function buildPillGroup(containerId, dataObj, currentKey, onSelect, hintFn) {
+      const wrap = document.getElementById(containerId);
+      wrap.innerHTML = "";
+      Object.keys(dataObj).forEach(key => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pill-btn" + (key === currentKey ? " active" : "");
+        btn.textContent = dataObj[key].label;
+        btn.onclick = () => onSelect(key);
+        wrap.appendChild(btn);
+      });
+      if (hintFn) hintFn();
+    }
+
+    function buildSizeGroup() {
+      buildPillGroup("sizeGroup", SIZES, currentSize, (key) => { currentSize = key; buildSizeGroup(); }, () => {
+        document.getElementById("sizeHint").textContent = SIZES[currentSize].dims;
+      });
+    }
+
+    function buildStyleGroup() {
+      buildPillGroup("styleGroup", STYLES, currentStyle, (key) => { currentStyle = key; buildStyleGroup(); });
+    }
+
+    function buildMaterialGroup() {
+      buildPillGroup("materialGroup", MATERIALS, currentMaterial, (key) => {
+        currentMaterial = key;
+        if (!MATERIALS[key].backlitOk && currentBacklit === "yes") currentBacklit = "unsure";
+        buildMaterialGroup();
+        buildBacklitGroup();
+      });
+    }
+
+    function buildBacklitGroup() {
+      const mat = MATERIALS[currentMaterial];
+      const wrap = document.getElementById("backlitGroup");
+      wrap.innerHTML = "";
+      Object.keys(BACKLIT).forEach(key => {
+        if (key === "yes" && !mat.backlitOk) return;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "pill-btn" + (key === currentBacklit ? " active" : "");
+        btn.textContent = BACKLIT[key].label;
+        btn.onclick = () => { currentBacklit = key; buildBacklitGroup(); };
+        wrap.appendChild(btn);
+      });
+      document.getElementById("colourField").style.display = (currentBacklit !== "no") ? "block" : "none";
+    }
+
+    function buildMountGroup() {
+      buildPillGroup("mountGroup", MOUNTS, currentMount, (key) => { currentMount = key; buildMountGroup(); });
+    }
+
+    function buildColourSwatches() {
+      const wrap = document.getElementById("colourGroup");
+      wrap.innerHTML = "";
+      COLOURS.forEach(c => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "swatch-btn" + (c.name === currentColour ? " active" : "");
+        btn.style.background = c.hex;
+        btn.title = c.name;
+        btn.onclick = () => { currentColour = c.name; buildColourSwatches(); };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function buildSpecsTable() {
+      const body = document.getElementById("specsTableBody");
+      body.innerHTML = "";
+      Object.values(MATERIALS).forEach(mat => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${mat.label}</td>
+          <td>Floating or Flush</td>
+          <td>${mat.backlitOk ? "Yes" : "No"}</td>
+          <td>${mat.backlitOk ? "Transformer sold separately if backlit" : "Solid finish, not suited to backlighting"}</td>`;
+        body.appendChild(tr);
+      });
+    }
+
+    function buildInspoGrid() {
+      const wrap = document.getElementById("inspoGrid");
+      wrap.innerHTML = "";
+      THEMES.forEach(t => {
+        const card = document.createElement("div");
+        card.className = "inspo-card";
+        card.innerHTML = `
+          <img src="${t.img}" alt="${t.label} home plate design" loading="lazy">
+          <div class="inspo-check"><i class="fa-solid fa-check"></i></div>
+          <div class="inspo-label">${t.label}</div>`;
+        card.onclick = () => {
+          card.classList.toggle("selected");
+          if (selectedThemes.includes(t.label)) {
+            selectedThemes = selectedThemes.filter(x => x !== t.label);
+          } else {
+            selectedThemes.push(t.label);
+          }
+        };
+        wrap.appendChild(card);
+      });
+    }
+
+    function sendEnquiry(channel) {
+      if (!validateDetails()) {
+        document.querySelector(".details-box").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      const text = document.getElementById("textInput").value.trim() || "Not specified";
+      const size = SIZES[currentSize];
+      const style = STYLES[currentStyle];
+      const mat = MATERIALS[currentMaterial];
+      const backlit = BACKLIT[currentBacklit];
+      const mount = MOUNTS[currentMount];
+      const font = document.getElementById("fontSelect").selectedOptions[0].textContent;
+      const motif = document.getElementById("motifInput").value.trim();
+      const qty = document.getElementById("qtyInput").value;
+
+      const name = document.getElementById("custName").value.trim();
+      const email = document.getElementById("custEmail").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const notes = document.getElementById("custNotes").value.trim();
+      const address = document.getElementById("custAddress").value.trim();
+
+      const lines = [
+        "NEW HOME PLATE ENQUIRY",
+        "",
+        `Text: "${text}"`,
+        `Size: ${size.label} (${size.dims})`,
+        `Plate Style: ${style.label}`,
+        `Background Material: ${mat.label}`,
+        `LED Backlighting: ${backlit.label}`,
+        currentBacklit !== "no" ? `Preferred LED Colour: ${currentColour}` : null,
+        `Mounting: ${mount.label}`,
+        `Font Preference: ${font}`,
+        motif ? `Theme / Motif Requested: ${motif}` : null,
+        selectedThemes.length ? `Liked Designs From Gallery: ${selectedThemes.join(", ")}` : null,
+        `Quantity: ${qty}`,
+        "",
+        `Name: ${name}`,
+        email ? `Email: ${email}` : null,
+        phone ? `Phone: ${phone}` : null,
+        deliveryMethod === "delivery" ? `Delivery to: ${address}` : "Pickup preferred",
+        notes ? `Notes: ${notes}` : null
+      ].filter(Boolean);
+      const message = lines.join("\n");
+
+      if (channel === "email") {
+        const subject = encodeURIComponent("Home Plate Enquiry \u2013 " + name + " \u2013 " + text);
+        const body = encodeURIComponent(message);
+        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
+      } else {
+        const waText = encodeURIComponent(message);
+        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
+      }
+    }
+
+    // ===== init =====
+    buildInspoGrid();
+    buildSizeGroup();
+    buildStyleGroup();
+    buildMaterialGroup();
+    buildBacklitGroup();
+    buildMountGroup();
+    buildColourSwatches();
+    buildSpecsTable();
+    </script>
+
+    <script>
+    (function() {
+        var dd = document.getElementById("productsDropdown");
+        if (!dd) return;
+        var closeTimer = null;
+
+        dd.addEventListener("mouseenter", function() {
+            clearTimeout(closeTimer);
+            dd.classList.add("open");
+        });
+
+        dd.addEventListener("mouseleave", function() {
+            closeTimer = setTimeout(function() {
+                dd.classList.remove("open");
+            }, 1000);
+        });
+    })();
+    </script>
+</body>
+</html>

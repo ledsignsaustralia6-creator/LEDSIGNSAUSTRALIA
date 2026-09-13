@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3D Illuminated Letters - Front-Lit, Halo-Lit (Back-Lit) &amp; More - LED SIGNS AUSTRALIA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Merriweather:wght@400;700&family=Pacifico&family=Roboto:wght@400;700&family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">LED SIGNS AUSTRALIA</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <div class="nav-dropdown" id="productsDropdown">
+                <a href="products.html" class="nav-dropdown-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="nav-megamenu">
+                    <div class="nav-megamenu-grid">
+                        <a href="3d-cut-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-a"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Cut Letters</strong><span>Dimensional letters in acrylic, metal &amp; more</span></span>
+                        </a>
+                        <a href="3d-illuminated-letters.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                            <span class="nav-megamenu-text"><strong>3D Illuminated Letters</strong><span>Front-lit or halo-lit (back-lit) LED letters</span></span>
+                        </a>
+                        <a href="light-box.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-square"></i></span>
+                            <span class="nav-megamenu-text"><strong>Light Box</strong><span>Backlit acrylic-faced panel signs</span></span>
+                        </a>
+                        <a href="home-plates.html" class="nav-megamenu-item">
+                            <span class="nav-megamenu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nav-megamenu-text"><strong>Home Plates</strong><span>House numbers &amp; street nameplates</span></span>
+                        </a>
+                    </div>
+                    <div class="nav-megamenu-footer">
+                        <a href="products.html">View All Products <i class="fa-solid fa-arrow-right"></i></a>
+                        <span>Instant online pricing</span>
+                    </div>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="quote-btn">Get Free Quote</a>
+    </header>
+
+    <section class="page-hero">
+        <h1>3D Illuminated Letters</h1>
+        <p>Explore our illuminated letter solutions, then send us your project details for a proper, obligation-free quote</p>
+    </section>
+
+    <!-- ===== SOLUTIONS GRID ===== -->
+    <section class="solutions-section">
+        <div class="section-heading">
+            <h2>Choose Your Solution</h2>
+            <p>Pick the visual effect you're after. Not sure which one fits? Select "Not sure yet" in the form below and we'll recommend one.</p>
+        </div>
+
+        <div class="solutions-grid" id="solutionsGrid"></div>
+    </section>
+
+    <!-- ===== PHOTO GALLERY ===== -->
+    <section class="gallery-section" id="gallerySection">
+        <div class="section-heading">
+            <h2>Photo Gallery</h2>
+            <p>Browse real examples by letter type. Tap any photo to view it larger.</p>
+        </div>
+        <div class="gallery-tabs" id="galleryTabs"></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightboxOnOverlay(event)">
+        <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        <button type="button" class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- ===== COMPARISON TABLE ===== -->
+    <section class="specs-section">
+        <div class="section-heading">
+            <h2>Illumination Types at a Glance</h2>
+        </div>
+        <div class="specs-table-wrap">
+            <table class="specs-table">
+                <thead>
+                    <tr><th>Type</th><th>Effect</th><th>Typical Use</th><th>Materials</th></tr>
+                </thead>
+                <tbody id="compareTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== ENQUIRY FORM ===== -->
+    <section class="enquiry-section" id="enquiryForm">
+        <div class="section-heading">
+            <h2>Tell Us About Your Sign</h2>
+            <p>Fill in what you can &mdash; if you're not sure about something, just tick "Not sure yet (TBA)" and we'll help you figure it out.</p>
+        </div>
+
+        <div class="enquiry-card">
+
+            <!-- Your Sign -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-lightbulb"></i> Your Sign</h3>
+
+                <div class="field">
+                    <label for="illumType">Illumination Type <span class="req">*</span></label>
+                    <select id="illumType">
+                        <option value="">Select an option</option>
+                        <option value="Front-Lit Letters">Front-Lit Letters</option>
+                        <option value="Halo-Lit Letters (Back-Lit)">Halo-Lit Letters (Back-Lit)</option>
+                        <option value="Front + Back-Lit (Combo)">Front + Back-Lit (Combo)</option>
+                        <option value="Non-Illuminated Letters">Non-Illuminated Letters</option>
+                        <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                    </select>
+                    <span class="field-error" id="illumTypeError"></span>
+                </div>
+
+                <div class="field">
+                    <label for="signText">Sign Text / Wording</label>
+                    <textarea id="signText" rows="2" placeholder="Type exactly what you want the sign to say, one line per row"></textarea>
+                </div>
+
+                <div class="field checkbox-field">
+                    <label class="checkbox-label"><input type="checkbox" id="logoOnly"> This is a logo only &mdash; no text</label>
+                </div>
+
+                <div class="field">
+                    <label for="artworkNote">Do you have a logo or artwork file?</label>
+                    <select id="artworkNote">
+                        <option value="Yes, I'll attach it to this email">Yes, I'll attach it to this email</option>
+                        <option value="Yes, I'll send it separately">Yes, I'll send it separately</option>
+                        <option value="No, need design help">No, need design help</option>
+                        <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Style & Materials -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-swatchbook"></i> Style &amp; Materials</h3>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="fontPref">Font / Style Preference</label>
+                        <select id="fontPref">
+                            <option value="Match our existing branding/logo">Match our existing branding/logo</option>
+                            <option value="Clean sans-serif">Clean sans-serif</option>
+                            <option value="Bold block letters">Bold block letters</option>
+                            <option value="Script / cursive">Script / cursive</option>
+                            <option value="Classic serif">Classic serif</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="materialPref">Material Preference</label>
+                        <select id="materialPref">
+                            <option value="Acrylic">Acrylic</option>
+                            <option value="Aluminium Composite">Aluminium Composite</option>
+                            <option value="Stainless Steel">Stainless Steel</option>
+                            <option value="No preference / open to advice">No preference / open to advice</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="colourPref">Colour(s) &mdash; day colour and lit colour if different</label>
+                    <div class="field-with-tba">
+                        <input type="text" id="colourPref" placeholder="e.g. White face, warm white LEDs">
+                        <label class="tba-checkbox"><input type="checkbox" id="colourTba" onchange="toggleTba('colourPref','colourTba')"> Not sure (TBA)</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Size & Quantity -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-ruler-combined"></i> Size &amp; Quantity</h3>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="heightPref">Approx. Letter Height (mm)</label>
+                        <div class="field-with-tba">
+                            <input type="number" id="heightPref" min="50" placeholder="e.g. 300">
+                            <label class="tba-checkbox"><input type="checkbox" id="heightTba" onchange="toggleTba('heightPref','heightTba')"> Not sure (TBA)</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="qtyPref">Quantity (sets)</label>
+                        <input type="number" id="qtyPref" min="1" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Installation -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-screwdriver-wrench"></i> Installation</h3>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="mountingSurface">Mounting Surface</label>
+                        <select id="mountingSurface">
+                            <option value="Brick / masonry">Brick / masonry</option>
+                            <option value="Render / cladding">Render / cladding</option>
+                            <option value="Metal / ACP panel">Metal / ACP panel</option>
+                            <option value="Glass">Glass</option>
+                            <option value="Interior wall">Interior wall</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="powerAccess">Power Access at Sign Location</label>
+                        <select id="powerAccess">
+                            <option value="Yes, power is available nearby">Yes, power is available nearby</option>
+                            <option value="No power currently">No power currently</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="installAddress">Installation Suburb / Postcode</label>
+                    <input type="text" id="installAddress" placeholder="e.g. Boolaroo NSW 2284">
+                </div>
+
+                <div class="field">
+                    <label for="installPref">Installation</label>
+                    <select id="installPref">
+                        <option value="Please install for us">Please install for us</option>
+                        <option value="We'll install ourselves">We'll install ourselves</option>
+                        <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Timing & Budget -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-calendar-days"></i> Timing &amp; Budget</h3>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="timeline">When Do You Need It?</label>
+                        <select id="timeline">
+                            <option value="ASAP">ASAP</option>
+                            <option value="Within 2-4 weeks">Within 2-4 weeks</option>
+                            <option value="1-3 months">1-3 months</option>
+                            <option value="Just researching for now">Just researching for now</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="budgetRange">Approx. Budget Range</label>
+                        <select id="budgetRange">
+                            <option value="Under $1,000">Under $1,000</option>
+                            <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                            <option value="$3,000 - $7,000">$3,000 - $7,000</option>
+                            <option value="$7,000+">$7,000+</option>
+                            <option value="Not sure yet (TBA)">Not sure yet (TBA)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="notes">Anything Else We Should Know?</label>
+                    <textarea id="notes" rows="3" placeholder="Site access, existing signage to match, inspiration links/photos, etc."></textarea>
+                </div>
+            </div>
+
+            <!-- Your Details -->
+            <div class="form-section">
+                <h3><i class="fa-solid fa-user"></i> Your Details</h3>
+
+                <div class="field">
+                    <label for="custName">Name <span class="req">*</span></label>
+                    <input type="text" id="custName" placeholder="Your name">
+                    <span class="field-error" id="custNameError"></span>
+                </div>
+
+                <div class="field">
+                    <label for="custBusiness">Business Name (optional)</label>
+                    <input type="text" id="custBusiness" placeholder="If applicable">
+                </div>
+
+                <div class="field field-half">
+                    <div>
+                        <label for="custEmail">Email</label>
+                        <input type="email" id="custEmail" placeholder="you@email.com">
+                    </div>
+                    <div>
+                        <label for="custPhone">Phone</label>
+                        <input type="tel" id="custPhone" placeholder="04xx xxx xxx">
+                    </div>
+                </div>
+                <span class="field-error" id="custContactError"></span>
+                <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+            </div>
+
+            <div class="quote-actions">
+                <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry('email')">
+                    <i class="fa-solid fa-envelope"></i> Email My Enquiry
+                </button>
+                <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendEnquiry('whatsapp')">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp My Enquiry
+                </button>
+            </div>
+            <p class="send-hint">We'll review your details and get back to you with a formal quote &mdash; no automatic pricing or payment is taken here.</p>
+
+        </div>
+    </section>
+
+    <!-- ===== WHAT HAPPENS NEXT ===== -->
+    <section class="steps-section">
+        <div class="section-heading">
+            <h2>What Happens Next</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>You Submit Your Details</h3>
+                <p>Send us as much or as little as you know &mdash; anything unclear can just be marked TBA.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>We Review &amp; Cost It</h3>
+                <p>Our team works out the right materials, illumination method and sizing for your space and budget.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>You Get a Formal Quote</h3>
+                <p>A clear, itemised quote lands in your inbox &mdash; no obligation, no pressure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section">
+        <div class="section-heading">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>What's the difference between front-lit and halo-lit (back-lit)?</summary>
+                <p>Front-lit letters shine light directly out through the letter face for maximum brightness and visibility. Halo-lit letters &mdash; also called back-lit letters &mdash; have an opaque face and glow softly around the edges instead, creating a premium, ambient look rather than a bright direct light.</p>
+            </details>
+            <details class="faq-item">
+                <summary>I don't know what size or material I need yet &mdash; can I still enquire?</summary>
+                <p>Yes. Fill in whatever you know and tick "Not sure yet (TBA)" for the rest. We'll ask a few follow-up questions or suggest options based on your space and budget.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do illuminated letters need mains power?</summary>
+                <p>Most LED-illuminated letters need a nearby low-voltage power connection. If you're not sure what's available at your site, select "Not sure yet (TBA)" for power access and we'll talk you through it.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I get a sample or see finishes in person?</summary>
+                <p>Yes, mention it in the notes section of the form and we'll arrange to show you finish and colour samples before you commit.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is this form a binding order?</summary>
+                <p>No. This sends us an enquiry only. We'll follow up with a formal, itemised quote before anything goes into production.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Not Sure Which Option Suits You?</h2>
+        <a href="mailto:info@ledsignsaustralia.com.au" class="quote-btn">Get a Free Consultation</a>
+    </section>
+
+    <!-- ===== SITE FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+
+        <div class="footer-contact">
+          <h3>LED SIGNS AUSTRALIA</h3>
+
+          <div class="footer-item">
+            <span>📧</span>
+            <a href="mailto:info@ledsignsaustralia.com.au">info@ledsignsaustralia.com.au</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61481308955">+61 481 308 955</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📞</span>
+            <a href="tel:+61468383437">+61 468 383 437</a>
+          </div>
+
+          <div class="footer-item">
+            <span>📍</span>
+            <p>Unit 6/78 Seventh Street, Boolaroo NSW 2284, Australia</p>
+          </div>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1ZkSF3gi5X/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/led_signs_australia?igsh=MWl4Z3ZxbzA1NTdi&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://share.google/oLgYBgmBVbnNzRLJH" target="_blank"><i class="fab fa-google"></i></a>
+            <a href="https://wa.me/61481308955" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com/@ledsignsaustralia-pse?si=Vr0nA9Z8hgm8R8EG" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+
+          <p class="footer-copy">&copy; 2026 LED Signs Australia. All rights reserved.</p>
+        </div>
+
+        <div class="footer-map">
+          <iframe
+          src="https://www.google.com/maps?q=Unit+6/78+Seventh+Street,+Boolaroo+NSW+2284,+Australia&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; border-radius:8px; min-height:220px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </footer>
+
+    <style>
+    /* ===== Footer ===== */
+    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
+    .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
+    .footer-item a { color:#fff; text-decoration:none; }
+    .footer-item a:hover { text-decoration:underline; }
+    .footer-item p { margin:0; }
+    .footer-social { display:flex; gap:10px; margin:18px 0; }
+    .footer-social a { width:40px; height:40px; border-radius:50%; background:#ffffff15; display:flex; align-items:center; justify-content:center; color:#fff; text-decoration:none; font-size:17px; }
+    .footer-social a:hover { background:#ffffff30; }
+    .footer-copy { font-size:14px; color:#e5e5e5; margin-top:24px; }
+    .footer-map { min-height:220px; height:100%; }
+    @media (max-width:700px){ .footer-inner{ grid-template-columns:1fr; } .footer-map{ height:220px; } }
+    .final-cta { margin-bottom: 0 !important; }
+
+    /* ===== Shared section styling ===== */
+    .section-heading { max-width:700px; margin:0 auto 30px; text-align:center; padding:0 20px; }
+    .section-heading h2 { font-size:30px; font-weight:800; color:#1a1a1a; margin-bottom:8px; }
+    .section-heading p { color:#555; font-size:15.5px; line-height:1.5; }
+
+    /* ===== Solutions grid ===== */
+    .solutions-section { max-width:1150px; margin:50px auto; padding:0 20px; }
+    .solutions-grid {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+    .solution-card {
+      background:#fff; border:1px solid #e6e8ec; border-radius:14px;
+      padding:28px 24px; display:flex; flex-direction:column; gap:12px;
+      cursor:pointer; transition:.2s;
+    }
+    .solution-card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 12px 28px rgba(72,120,199,0.18);
+      border-color:#4878c7;
+    }
+    .solution-icon {
+      width:56px; height:56px; border-radius:50%;
+      background:linear-gradient(135deg,#4878c7,#2f5aa0);
+      color:#fff; display:flex; align-items:center; justify-content:center;
+      font-size:24px;
+    }
+    .solution-card h3 { font-size:19px; color:#1a1a1a; margin:0; }
+    .solution-card p { font-size:14px; color:#666; line-height:1.55; margin:0; flex:1; }
+    .solution-card-actions { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:4px; }
+    .solution-link { font-size:13.5px; font-weight:700; color:#4878c7; display:inline-flex; align-items:center; gap:6px; }
+    .solution-link i { font-size:12px; transition:transform .15s; }
+    .solution-card:hover .solution-link i { transform:translateX(3px); }
+    .solution-photos-btn {
+      border:1px solid #d7dbe0; background:#fff; color:#4878c7; font-size:12.5px; font-weight:700;
+      padding:6px 12px; border-radius:16px; cursor:pointer; transition:.15s; white-space:nowrap;
+    }
+    .solution-photos-btn:hover { background:#4878c7; color:#fff; border-color:#4878c7; }
+
+    @media (max-width:900px) { .solutions-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:600px) { .solutions-grid { grid-template-columns:1fr; } }
+
+    /* ===== Photo gallery ===== */
+    .gallery-section { max-width:1150px; margin:60px auto; padding:0 20px; }
+    .gallery-tabs { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:24px; }
+    .gallery-tab-btn {
+      border:1px solid #d7dbe0; background:#fff; color:#333; font-size:13.5px; font-weight:700;
+      padding:9px 18px; border-radius:20px; cursor:pointer; transition:.15s;
+    }
+    .gallery-tab-btn.active, .gallery-tab-btn:hover { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .gallery-tile {
+      position:relative; aspect-ratio:1/1; border-radius:10px; overflow:hidden;
+      cursor:pointer; background:#f0f2f5; border:1px solid #e6e8ec;
+    }
+    .gallery-tile img { width:100%; height:100%; object-fit:cover; display:block; }
+    .gallery-tile:hover img { transform:scale(1.04); }
+    .gallery-tile img { transition:transform .2s ease; }
+    .gallery-tile-placeholder {
+      width:100%; height:100%; display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:8px; color:#9aa2ab; font-size:12px; text-align:center; padding:10px;
+    }
+    .gallery-tile-placeholder i { font-size:22px; }
+    @media (max-width:850px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
+    @media (max-width:560px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+
+    .lightbox-overlay {
+      position:fixed; inset:0; background:rgba(10,12,16,0.92); display:none;
+      align-items:center; justify-content:center; z-index:9999; flex-direction:column; padding:30px;
+    }
+    .lightbox-overlay.open { display:flex; }
+    .lightbox-image { max-width:88vw; max-height:78vh; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+    .lightbox-caption { color:#fff; margin-top:16px; font-size:14px; opacity:.85; }
+    .lightbox-close {
+      position:absolute; top:20px; right:26px; background:none; border:none;
+      color:#fff; font-size:34px; line-height:1; cursor:pointer;
+    }
+    .lightbox-nav {
+      position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.12);
+      border:none; color:#fff; width:46px; height:46px; border-radius:50%; font-size:18px;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.15s;
+    }
+    .lightbox-nav:hover { background:rgba(255,255,255,0.25); }
+    .lightbox-prev { left:20px; }
+    .lightbox-next { right:20px; }
+    @media (max-width:600px){ .lightbox-nav{ width:38px; height:38px; font-size:15px; } .lightbox-prev{left:8px;} .lightbox-next{right:8px;} }
+
+    /* ===== Specs table ===== */
+    .specs-section { max-width:1100px; margin:60px auto; padding:0 20px; }
+    .specs-table-wrap { overflow-x:auto; border:1px solid #e6e8ec; border-radius:10px; }
+    .specs-table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; }
+    .specs-table thead th { background:#4878c7; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
+    .specs-table tbody td { padding:14px 18px; border-top:1px solid #e6e8ec; color:#333; }
+    .specs-table tbody tr:nth-child(even) { background:#f7f8fa; }
+
+    /* ===== Enquiry form ===== */
+    .enquiry-section { max-width:850px; margin:60px auto; padding:0 20px; }
+    .enquiry-card {
+      background:#f7f8fa; border:1px solid #e6e8ec; border-radius:16px;
+      padding:32px; display:flex; flex-direction:column; gap:28px;
+    }
+    .form-section { display:flex; flex-direction:column; gap:16px; }
+    .form-section h3 {
+      font-size:16px; font-weight:800; color:#1a1a1a; margin:0 0 2px;
+      display:flex; align-items:center; gap:10px;
+      padding-bottom:10px; border-bottom:1px solid #e0e3e8;
+    }
+    .form-section h3 i { color:#4878c7; font-size:15px; }
+
+    .field label { display:block; font-size:13.5px; font-weight:700; color:#333; margin-bottom:6px; }
+    .field input[type=text], .field input[type=number], .field input[type=email],
+    .field input[type=tel], .field select, .field textarea {
+      width:100%; padding:10px 12px; border:1px solid #d7dbe0; border-radius:8px;
+      font-size:15px; background:#fff; color:#1a1a1a; font-family:inherit;
+    }
+    .field textarea { resize:vertical; min-height:60px; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
+    .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .req { color:#c8202f; }
+    .field-error { display:block; font-size:12.5px; color:#c8202f; margin-top:4px; min-height:0; }
+    .field.has-error input, .field.has-error select { border-color:#c8202f; }
+
+    .checkbox-field { margin-top:-4px; }
+    .checkbox-label { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#444; cursor:pointer; }
+    .checkbox-label input { width:auto; margin:0; }
+
+    .field-with-tba { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    .field-with-tba input[type=text], .field-with-tba input[type=number] { flex:1; min-width:150px; }
+    .tba-checkbox { display:flex; align-items:center; gap:6px; font-size:12.5px; color:#666; white-space:nowrap; cursor:pointer; }
+    .tba-checkbox input { width:auto; margin:0; }
+
+    .quote-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .quote-action-btn {
+      flex:1; min-width:180px; border:none; border-radius:8px; padding:13px 16px;
+      font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
+      justify-content:center; gap:8px; transition:.15s;
+    }
+    .email-btn { background:#4878c7; color:#fff; }
+    .email-btn:hover { background:#3a63a8; }
+    .whatsapp-btn { background:#25d366; color:#fff; }
+    .whatsapp-btn:hover { background:#1fb959; }
+    .send-hint { font-size:12px; color:#888; text-align:center; margin:0; }
+
+    /* ===== Steps ===== */
+    .steps-section { max-width:1100px; margin:60px auto; padding:0 20px; }
+    .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+    .step-card {
+      background:#fff; border:1px solid #e6e8ec; border-radius:12px; padding:26px 22px;
+      text-align:center;
+    }
+    .step-number {
+      width:38px; height:38px; border-radius:50%; background:#4878c7; color:#fff;
+      display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px;
+      margin:0 auto 14px;
+    }
+    .step-card h3 { font-size:17px; color:#1a1a1a; margin:0 0 8px; }
+    .step-card p { font-size:14px; color:#666; line-height:1.55; margin:0; }
+    @media (max-width:850px) { .steps-grid { grid-template-columns:1fr; } }
+
+    /* ===== FAQ ===== */
+    .faq-section { max-width:800px; margin:60px auto; padding:0 20px; }
+    .faq-list { display:flex; flex-direction:column; gap:10px; }
+    .faq-item { background:#f7f8fa; border:1px solid #e6e8ec; border-radius:10px; padding:14px 18px; }
+    .faq-item summary { cursor:pointer; font-weight:700; color:#1a1a1a; font-size:15.5px; }
+    .faq-item p { margin:10px 0 2px; color:#555; font-size:14.5px; line-height:1.6; }
+
+    @media (max-width:600px) {
+      .field-half { grid-template-columns:1fr; }
+      .enquiry-card { padding:22px; }
+    }
+    </style>
+    <!-- ===== END SITE FOOTER ===== -->
+
+    <script src="mobile-menu.js"></script>
+    <script>
+    // ============================================================
+    // SOLUTIONS GRID DATA
+    // ============================================================
+    const SOLUTIONS = [
+      {
+        icon: "fa-sun",
+        title: "Front-Lit Letters",
+        desc: "Bright, direct illumination through the letter face for maximum visibility and 24/7 impact.",
+        value: "Front-Lit Letters",
+        slug: "front-lit",
+        photoCount: 4
+      },
+      {
+        icon: "fa-circle-half-stroke",
+        title: "Halo-Lit Letters (Back-Lit)",
+        desc: "An elegant backlit glow around each letter \u2014 a premium, subtle look for upscale spaces.",
+        value: "Halo-Lit Letters (Back-Lit)",
+        slug: "halo-lit",
+        photoCount: 4
+      },
+      {
+        icon: "fa-star-of-life",
+        title: "Front + Back-Lit (Combo)",
+        desc: "Direct face light and a halo glow together, for signs that need to work day and night.",
+        value: "Front + Back-Lit (Combo)",
+        slug: "front-halo-combo",
+        photoCount: 4
+      },
+      {
+        icon: "fa-font",
+        title: "Non-Illuminated Letters",
+        desc: "3D letters without internal lighting, in acrylic, aluminium composite or stainless steel.",
+        value: "Non-Illuminated Letters",
+        slug: "non-illuminated",
+        photoCount: 5
+      }
+    ];
+
+    const COMPARE_ROWS = [
+      { type: "Front-Lit", effect: "Bright, even light through the face", use: "Shopfronts, high-visibility 24/7 signage", materials: "Acrylic, ACP" },
+      { type: "Halo-Lit (Back-Lit)", effect: "Soft glow around the letter edge", use: "Premium, upscale branding", materials: "Acrylic, Stainless, ACP" },
+      { type: "Front + Back-Lit", effect: "Both effects combined", use: "Signs needing day and night impact", materials: "Acrylic, ACP" },
+      { type: "Non-Illuminated", effect: "No internal light", use: "Daytime branding, budget-friendly", materials: "Acrylic, ACP, Stainless" }
+    ];
+
+    function buildSolutionsGrid() {
+      const grid = document.getElementById("solutionsGrid");
+      grid.innerHTML = "";
+      SOLUTIONS.forEach(s => {
+        const card = document.createElement("div");
+        card.className = "solution-card";
+        card.onclick = () => selectSolution(s.value);
+        card.innerHTML = `
+          <div class="solution-icon"><i class="fa-solid ${s.icon}"></i></div>
+          <h3>${s.title}</h3>
+          <p>${s.desc}</p>
+          <div class="solution-card-actions">
+            <span class="solution-link">Get a Quote for This <i class="fa-solid fa-arrow-right"></i></span>
+            <button type="button" class="solution-photos-btn">View Photos</button>
+          </div>`;
+        const photoBtn = card.querySelector(".solution-photos-btn");
+        photoBtn.onclick = (e) => { e.stopPropagation(); viewPhotos(s.slug); };
+        grid.appendChild(card);
+      });
+    }
+
+    function buildCompareTable() {
+      const body = document.getElementById("compareTableBody");
+      body.innerHTML = "";
+      COMPARE_ROWS.forEach(r => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${r.type}</td><td>${r.effect}</td><td>${r.use}</td><td>${r.materials}</td>`;
+        body.appendChild(tr);
+      });
+    }
+
+    // ============================================================
+    // PHOTO GALLERY
+    // Real photos live at images/gallery/<slug>/1.jpg, 2.jpg, etc.
+    // Until a photo is uploaded at that path, its tile shows a
+    // "Photo coming soon" placeholder instead of a broken image.
+    // ============================================================
+    let currentGallerySlug = SOLUTIONS[0].slug;
+    let currentGalleryImages = [];
+    let lightboxIndex = 0;
+
+    function buildGalleryTabs() {
+      const wrap = document.getElementById("galleryTabs");
+      wrap.innerHTML = "";
+      SOLUTIONS.forEach(s => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "gallery-tab-btn" + (s.slug === currentGallerySlug ? " active" : "");
+        btn.textContent = s.title;
+        btn.onclick = () => { currentGallerySlug = s.slug; buildGalleryTabs(); buildGalleryGrid(); };
+        wrap.appendChild(btn);
+      });
+    }
+
+    function buildGalleryGrid() {
+      const solution = SOLUTIONS.find(s => s.slug === currentGallerySlug);
+      const grid = document.getElementById("galleryGrid");
+      grid.innerHTML = "";
+      currentGalleryImages = [];
+
+      for (let i = 1; i <= solution.photoCount; i++) {
+        const src = `images/gallery/${solution.slug}/${i}.jpg`;
+        currentGalleryImages.push({ src, caption: `${solution.title} \u2014 example ${i}` });
+
+        const tile = document.createElement("div");
+        tile.className = "gallery-tile";
+        const tileIndex = i - 1;
+        tile.onclick = () => openLightbox(tileIndex);
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `${solution.title} example ${i}`;
+        img.loading = "lazy";
+        img.onerror = function() {
+          tile.onclick = null;
+          tile.style.cursor = "default";
+          tile.innerHTML = '<div class="gallery-tile-placeholder"><i class="fa-solid fa-image"></i><span>Photo coming soon</span></div>';
+        };
+        tile.appendChild(img);
+        grid.appendChild(tile);
+      }
+    }
+
+    function viewPhotos(slug) {
+      currentGallerySlug = slug;
+      buildGalleryTabs();
+      buildGalleryGrid();
+      document.getElementById("gallerySection").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function openLightbox(index) {
+      const item = currentGalleryImages[index];
+      if (!item) return;
+      lightboxIndex = index;
+      const img = document.getElementById("lightboxImage");
+      img.onerror = () => closeLightbox();
+      img.src = item.src;
+      document.getElementById("lightboxCaption").textContent = item.caption;
+      document.getElementById("lightboxOverlay").classList.add("open");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightboxOverlay").classList.remove("open");
+    }
+
+    function closeLightboxOnOverlay(e) {
+      if (e.target.id === "lightboxOverlay") closeLightbox();
+    }
+
+    function navLightbox(dir) {
+      let next = lightboxIndex + dir;
+      if (next < 0) next = currentGalleryImages.length - 1;
+      if (next >= currentGalleryImages.length) next = 0;
+      openLightbox(next);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      const overlay = document.getElementById("lightboxOverlay");
+      if (!overlay.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") navLightbox(-1);
+      if (e.key === "ArrowRight") navLightbox(1);
+    });
+
+    function selectSolution(value) {
+      const sel = document.getElementById("illumType");
+      sel.value = value;
+      clearFieldError(sel);
+      document.getElementById("enquiryForm").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    // ============================================================
+    // TBA TOGGLE HELPER
+    // ============================================================
+    function toggleTba(fieldId, checkboxId) {
+      const field = document.getElementById(fieldId);
+      const checked = document.getElementById(checkboxId).checked;
+      field.disabled = checked;
+      if (checked) {
+        field.dataset.prevValue = field.value;
+        field.value = "";
+        field.placeholder = "TBA \u2014 not sure yet";
+      } else {
+        field.value = field.dataset.prevValue || "";
+      }
+    }
+
+    function fieldOrTba(fieldId, checkboxId) {
+      const field = document.getElementById(fieldId);
+      const tbaChecked = checkboxId ? document.getElementById(checkboxId).checked : false;
+      if (tbaChecked) return "TBA";
+      const val = field.value.trim();
+      return val ? val : "TBA";
+    }
+
+    // ============================================================
+    // VALIDATION
+    // ============================================================
+    function clearFieldError(el) {
+      el.closest(".field")?.classList.remove("has-error");
+      const errEl = document.getElementById(el.id + "Error");
+      if (errEl) errEl.textContent = "";
+      const contactErr = document.getElementById("custContactError");
+      if (contactErr && (el.id === "custEmail" || el.id === "custPhone")) contactErr.textContent = "";
+    }
+
+    function validateForm() {
+      let ok = true;
+      const illumType = document.getElementById("illumType");
+      const name = document.getElementById("custName");
+      const email = document.getElementById("custEmail");
+      const phone = document.getElementById("custPhone");
+
+      if (!illumType.value) {
+        illumType.closest(".field").classList.add("has-error");
+        document.getElementById("illumTypeError").textContent = "Please choose an illumination type (or \u201cNot sure yet\u201d).";
+        ok = false;
+      }
+      if (!name.value.trim()) {
+        name.closest(".field").classList.add("has-error");
+        document.getElementById("custNameError").textContent = "Please enter your name.";
+        ok = false;
+      }
+      if (!email.value.trim() && !phone.value.trim()) {
+        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
+        ok = false;
+      }
+      return ok;
+    }
+
+    [
+      ["illumType", null], ["custName", "custNameError"],
+      ["custEmail", null], ["custPhone", null]
+    ].forEach(([id]) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener("input", () => clearFieldError(el));
+      if (el) el.addEventListener("change", () => clearFieldError(el));
+    });
+
+    // ============================================================
+    // SEND ENQUIRY
+    // ============================================================
+    function sendEnquiry(channel) {
+      if (!validateForm()) {
+        document.querySelector(".enquiry-card").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      const illumType = document.getElementById("illumType").value;
+      const logoOnly = document.getElementById("logoOnly").checked;
+      const signText = logoOnly ? "(Logo only, no text)" : (document.getElementById("signText").value.trim() || "TBA");
+      const artworkNote = document.getElementById("artworkNote").value;
+      const fontPref = document.getElementById("fontPref").value;
+      const materialPref = document.getElementById("materialPref").value;
+      const colourPref = fieldOrTba("colourPref", "colourTba");
+      const heightPref = fieldOrTba("heightPref", "heightTba");
+      const qtyPref = document.getElementById("qtyPref").value || "1";
+      const mountingSurface = document.getElementById("mountingSurface").value;
+      const powerAccess = document.getElementById("powerAccess").value;
+      const installAddress = document.getElementById("installAddress").value.trim() || "TBA";
+      const installPref = document.getElementById("installPref").value;
+      const timeline = document.getElementById("timeline").value;
+      const budgetRange = document.getElementById("budgetRange").value;
+      const notes = document.getElementById("notes").value.trim();
+
+      const name = document.getElementById("custName").value.trim();
+      const business = document.getElementById("custBusiness").value.trim();
+      const email = document.getElementById("custEmail").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+
+      const lines = [
+        "NEW 3D ILLUMINATED LETTERS ENQUIRY",
+        "",
+        `Illumination Type: ${illumType}`,
+        `Sign Text: ${signText}`,
+        `Artwork: ${artworkNote}`,
+        `Font Preference: ${fontPref}`,
+        `Material Preference: ${materialPref}`,
+        `Colour(s): ${colourPref}`,
+        `Approx. Letter Height: ${heightPref}${heightPref !== "TBA" ? "mm" : ""}`,
+        `Quantity (sets): ${qtyPref}`,
+        `Mounting Surface: ${mountingSurface}`,
+        `Power Access: ${powerAccess}`,
+        `Install Location: ${installAddress}`,
+        `Installation: ${installPref}`,
+        `Timeline: ${timeline}`,
+        `Budget Range: ${budgetRange}`,
+        notes ? `Notes: ${notes}` : null,
+        "",
+        `Name: ${name}`,
+        business ? `Business: ${business}` : null,
+        email ? `Email: ${email}` : null,
+        phone ? `Phone: ${phone}` : null
+      ].filter(Boolean);
+      const message = lines.join("\n");
+
+      if (channel === "email") {
+        const subject = encodeURIComponent("3D Illuminated Letters Enquiry \u2013 " + name);
+        const body = encodeURIComponent(message);
+        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
+      } else {
+        const waText = encodeURIComponent(message);
+        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
+      }
+    }
+
+    // ===== init =====
+    buildSolutionsGrid();
+    buildCompareTable();
+    buildGalleryTabs();
+    buildGalleryGrid();
+    </script>
+
+    <script>
+    (function() {
+        var dd = document.getElementById("productsDropdown");
+        if (!dd) return;
+        var closeTimer = null;
+
+        dd.addEventListener("mouseenter", function() {
+            clearTimeout(closeTimer);
+            dd.classList.add("open");
+        });
+
+        dd.addEventListener("mouseleave", function() {
+            closeTimer = setTimeout(function() {
+                dd.classList.remove("open");
+            }, 1000);
+        });
+    })();
+    </script>
+</body>
+</html>

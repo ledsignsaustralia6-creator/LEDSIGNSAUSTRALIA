@@ -593,11 +593,6 @@ nav a {
 /* Hidden by default */
 
 
-
-DETAILS OF BUTTON FOR HIDING
-
-
-
 /* Style for your project images so they show a pointer cursor */
 .project-item img.zoomable-img {
     cursor: pointer;
@@ -924,4 +919,215 @@ DETAILS OF BUTTON FOR HIDING
 }
 .send-btn:hover {
     background-color: #3a63a8;
+}
+
+/* ===== Products mega-menu ===== */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.nav-dropdown-trigger {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-dropdown-trigger i {
+    font-size: 10px;
+    transition: transform 0.25s ease;
+    opacity: 0.7;
+}
+.nav-dropdown.open .nav-dropdown-trigger i,
+.nav-dropdown:hover .nav-dropdown-trigger i {
+    transform: rotate(180deg);
+}
+
+.nav-megamenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 20px 45px rgba(20,25,35,0.16), 0 2px 8px rgba(20,25,35,0.06);
+    padding: 14px;
+    width: 460px;
+    z-index: 500;
+    margin-top: 16px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+}
+.nav-dropdown:hover .nav-megamenu,
+.nav-dropdown.open .nav-megamenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+/* invisible bridge so the menu doesn't vanish while moving the mouse from the trigger down to the menu */
+.nav-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 16px;
+}
+
+.nav-megamenu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+.nav-megamenu-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+.nav-megamenu-item:hover {
+    background: #f3f6fb;
+}
+.nav-megamenu-icon {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: #eef3fc;
+    color: #4878c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+.nav-megamenu-item:hover .nav-megamenu-icon {
+    background: #4878c7;
+    color: #fff;
+}
+.nav-megamenu-text strong {
+    display: block;
+    font-size: 14.5px;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+}
+.nav-megamenu-text span {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    line-height: 1.4;
+}
+
+.nav-megamenu-footer {
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px solid #eef0f3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-megamenu-footer a {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #4878c7;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.nav-megamenu-footer a:hover {
+    text-decoration: underline;
+}
+.nav-megamenu-footer span {
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* ===== Mobile: clean accordion instead of floating menu ===== */
+@media (max-width: 900px) {
+    .nav-megamenu {
+        position: static;
+        transform: none !important;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        width: auto;
+        margin-top: 6px;
+        padding: 4px 0 4px 14px;
+        border-left: 2px solid #e6e8ec;
+        border-radius: 0;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+    .nav-dropdown.open .nav-megamenu {
+        max-height: 500px;
+    }
+    .nav-megamenu-grid {
+        grid-template-columns: 1fr;
+    }
+    .nav-megamenu-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+    .nav-megamenu-text span {
+        display: none;
+    }
+    .nav-megamenu-footer {
+        display: none;
+    }
+    .nav-dropdown::after {
+        display: none;
+    }
+}
+
+/* ===== Contact page — mobile ===== */
+@media (max-width: 900px) {
+    .contact-minimal {
+        gap: 40px;
+        padding: 50px 20px;
+    }
+    .contact-minimal-left h1 {
+        font-size: 32px;
+    }
+    .contact-minimal-left p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-minimal {
+        padding: 40px 16px;
+        gap: 30px;
+    }
+    .contact-minimal-left h1 {
+        font-size: 28px;
+    }
+    .contact-minimal-left h2 {
+        font-size: 16px;
+    }
+    .contact-minimal-item {
+        font-size: 13.5px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .send-btn {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .contact-map iframe {
+        height: 220px;
+    }
 }
