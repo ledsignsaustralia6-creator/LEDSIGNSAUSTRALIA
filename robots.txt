@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ledsignsaustralia.com.au/sitemap.xml
