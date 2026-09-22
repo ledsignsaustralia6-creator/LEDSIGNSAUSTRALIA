@@ -12,6 +12,27 @@
     <meta property="og:url" content="https://ledsignsaustralia.com.au/3d-cut-letters.html">
     <meta property="og:site_name" content="LED Signs Australia">
     <meta property="og:image" content="https://ledsignsaustralia.com.au/images/3dletters-1.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "3D Cut Letters",
+      "description": "Custom 3D cut letters in acrylic, aluminium, stainless steel, brass, timber or PVC foam, designed and priced online and installed across Greater Newcastle, Lake Macquarie, the Hunter Valley and Central Coast.",
+      "image": "https://ledsignsaustralia.com.au/images/3dletters-1.jpg",
+      "brand": { "@type": "Brand", "name": "LED Signs Australia" },
+      "url": "https://ledsignsaustralia.com.au/3d-cut-letters.html",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://ledsignsaustralia.com.au/3d-cut-letters.html",
+        "priceCurrency": "AUD",
+        "price": "70.00",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "description": "Minimum order price, inc. GST. Final price depends on size, material and quantity selected in the online configurator."
+      }
+    }
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,7 +168,7 @@
                     <div class="price-row"><span>Subtotal (ex GST)</span><span id="priceSubtotal">$0.00</span></div>
                     <div class="price-row"><span>GST (10%)</span><span id="priceGst">$0.00</span></div>
                     <div class="price-row price-total"><span>Estimated Total</span><span id="priceTotal">$0.00</span></div>
-                    <p class="price-note">Instant estimate only &mdash; minimum order $70 inc GST. A <strong>paper installation template will be sent with your letters</strong>. <strong>Installation is not included</strong> &mdash; we offer professional installation across Greater Newcastle, Sydney and surrounding areas (get in touch for an install quote), or we can ship letters anywhere in Australia for self-install. <strong>Delivery cost is not included</strong> and will be confirmed on your official quote and invoice. Final price confirmed when we review your artwork.</p>
+                    <p class="price-note">Instant estimate only &mdash; minimum order $70 inc GST. A <strong>paper installation template will be sent with your letters</strong>. <strong>Installation is not included</strong> &mdash; we offer professional installation across Greater Newcastle, Lake Macquarie, the Hunter Valley (up to Muswellbrook) and the Central Coast (get in touch for an install quote), or we can ship letters anywhere in Australia for self-install. <strong>Delivery cost is not included</strong> and will be confirmed on your official quote and invoice. Final price confirmed when we review your artwork.</p>
                 </div>
 
                 <div class="details-box">
@@ -277,7 +298,7 @@
             </details>
             <details class="faq-item">
                 <summary>Do you install the letters?</summary>
-                <p>We offer professional installation across <strong>Greater Newcastle, Sydney and surrounding areas</strong> &mdash; get in touch for an install quote. Outside these areas, we can <strong>ship letters anywhere in Australia</strong> for self-install, and every order comes with a <strong>paper installation template</strong> matched to your exact sign, showing the correct position for every fixing point.</p>
+                <p>We offer professional installation across <strong>Greater Newcastle, Lake Macquarie, the Hunter Valley (up to Muswellbrook) and the Central Coast</strong> &mdash; get in touch for an install quote. Outside these areas, we can <strong>ship letters anywhere in Australia</strong> for self-install, and every order comes with a <strong>paper installation template</strong> matched to your exact sign, showing the correct position for every fixing point.</p>
             </details>
         </div>
     </section>
@@ -1037,7 +1058,7 @@
       const cncCost = cnc.machineCost + setupCost;
 
       // No installation cost included - we don't install on-site as standard.
-      // Local installation (Greater Newcastle, Sydney & surrounds) is quoted separately.
+      // Local installation (Greater Newcastle, Lake Macquarie, Hunter Valley & Central Coast) is quoted separately.
       let perSetExGst = materialCost + cncCost;
       perSetExGst = Math.max(perSetExGst, 32);
 
