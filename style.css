@@ -21,9 +21,14 @@ body {
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+    display: block;
 }
 
 nav a {
@@ -777,8 +782,8 @@ nav a {
         font-size: 24px;
     }
 
-    .logo {
-        font-size: 18px;
+    .logo-img {
+        height: 32px;
     }
 
     .process-flow {
