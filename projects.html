@@ -13,6 +13,12 @@
     <meta property="og:site_name" content="LED Signs Australia">
     <meta property="og:image" content="https://ledsignsaustralia.com.au/images/3dil-1.jpg">
     <link rel="stylesheet" href="style.css">
+    <style>
+    /* Logo sizing failsafe — keeps the logo the right size even if style.css is out of date */
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 42px; width: auto; display: block; }
+    @media (max-width: 768px) { .logo-img { height: 32px; } }
+    </style>
 </head>
 <body>
     <header class="header">

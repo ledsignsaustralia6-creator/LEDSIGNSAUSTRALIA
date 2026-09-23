@@ -44,6 +44,12 @@
       ]
     }
     </script>
+    <style>
+    /* Logo sizing failsafe — keeps the logo the right size even if style.css is out of date */
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 42px; width: auto; display: block; }
+    @media (max-width: 768px) { .logo-img { height: 32px; } }
+    </style>
 </head>
 <body>
     <header class="header">

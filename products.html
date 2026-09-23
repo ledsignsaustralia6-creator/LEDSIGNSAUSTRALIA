@@ -14,10 +14,18 @@
     <meta property="og:image" content="https://ledsignsaustralia.com.au/images/work2.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+    /* Logo sizing failsafe — keeps the logo the right size even if style.css is out of date */
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 42px; width: auto; display: block; }
+    @media (max-width: 768px) { .logo-img { height: 32px; } }
+    </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">LED SIGNS AUSTRALIA</div>
+        <a href="index.html" class="logo">
+            <img src="images/led-signs-australia-logo.png" alt="LED Signs Australia" class="logo-img" width="2014" height="373">
+        </a>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </div>
