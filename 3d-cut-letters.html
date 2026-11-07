@@ -190,17 +190,18 @@
                     </div>
 
                     <div class="field field-half">
-                        <div>
-                            <label for="custEmail">Email</label>
+                        <div class="field">
+                            <label for="custEmail">Email <span class="req">*</span></label>
                             <input type="email" id="custEmail" placeholder="you@email.com" oninput="clearFieldError(this)">
+                            <span class="field-error" id="custEmailError"></span>
                         </div>
-                        <div>
-                            <label for="custPhone">Phone</label>
-                            <input type="tel" id="custPhone" placeholder="04xx xxx xxx" oninput="clearFieldError(this)">
+                        <div class="field">
+                            <label for="custPhone">Phone <span class="req">*</span></label>
+                            <input type="tel" id="custPhone" placeholder="04xx xxx xxx" inputmode="tel" autocomplete="tel" oninput="clearFieldError(this)">
+                            <span class="field-error" id="custPhoneError"></span>
                         </div>
                     </div>
-                    <span class="field-error" id="custContactError"></span>
-                    <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+                    <span class="field-hint">Name, email and phone are all required so we can get back to you.</span>
 
                     <div class="field">
                         <label>How would you like your order?</label>
@@ -225,14 +226,11 @@
                 </div>
 
                 <div class="quote-actions">
-                    <button type="button" class="quote-action-btn email-btn" onclick="sendQuote('email')">
-                        <i class="fa-solid fa-envelope"></i> Email My Order
-                    </button>
-                    <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendQuote('whatsapp')">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp My Order
+                    <button type="button" class="quote-action-btn email-btn" onclick="sendQuote()">
+                        <i class="fa-solid fa-paper-plane"></i> Send My Order
                     </button>
                 </div>
-                <p class="send-hint">This sends your specs and contact details straight to us &mdash; it's a firm order request, not an automatic checkout. We'll confirm final pricing and timing before production starts.</p>
+                <p class="send-hint">You'll be asked to confirm before anything is sent. It's a firm order request, not an automatic checkout &mdash; we'll confirm final pricing and timing before production starts.</p>
 
             </div>
         </div>
@@ -372,7 +370,7 @@
 
     <style>
     /* ===== Footer (matches services.html) ===== */
-    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .site-footer { background:#00AFEF; color:#fff; padding:40px 20px; margin-top:40px; }
     .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
     .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
     .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
@@ -431,7 +429,7 @@
     .preview-dim-wrap {
       position:relative;
       display:inline-block;
-      border:1.5px dashed #4878c7;
+      border:1.5px dashed #00AFEF;
       padding:14px 18px;
       margin:28px 40px 14px 46px;
     }
@@ -470,7 +468,7 @@
       border:1px solid #d7dbe0; background:#fff; color:#444; font-size:13px;
       padding:7px 14px; border-radius:20px; cursor:pointer; transition:.15s;
     }
-    .wall-btn.active, .wall-btn:hover { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .wall-btn.active, .wall-btn:hover { background:#00AFEF; color:#fff; border-color:#00AFEF; }
     .preview-hint { text-align:center; font-size:12.5px; color:#888; margin-top:10px; }
     .preview-dims {
       text-align:center; font-size:14px; font-weight:700; color:#1a1a1a;
@@ -491,7 +489,7 @@
       font-size:15px; background:#fff; color:#1a1a1a; font-family:inherit;
       resize:vertical; min-height:44px;
     }
-    .field input:focus, .field select:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field input:focus, .field select:focus { outline:2px solid #00AFEF; outline-offset:1px; }
     .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
     .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 
@@ -517,7 +515,7 @@
       border:1px solid #d7dbe0; background:#fff; color:#333; font-size:13.5px;
       padding:8px 14px; border-radius:20px; cursor:pointer; transition:.15s;
     }
-    .pill-btn.active { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .pill-btn.active { background:#00AFEF; color:#fff; border-color:#00AFEF; }
 
     .swatch-group { display:flex; flex-wrap:wrap; gap:10px; }
     .swatch-btn {
@@ -525,7 +523,7 @@
       border:2px solid transparent; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15);
       position:relative;
     }
-    .swatch-btn.active { border-color:#4878c7; box-shadow:0 0 0 3px rgba(72,120,199,0.25); }
+    .swatch-btn.active { border-color:#00AFEF; box-shadow:0 0 0 3px rgba(0, 175, 239,0.25); }
     .swatch-btn[data-white]::after {
       content:""; position:absolute; inset:0; border-radius:50%; box-shadow:inset 0 0 0 1px #ccc;
     }
@@ -549,8 +547,8 @@
       font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
       justify-content:center; gap:8px; transition:.15s;
     }
-    .email-btn { background:#4878c7; color:#fff; }
-    .email-btn:hover { background:#3a63a8; }
+    .email-btn { background:#00AFEF; color:#fff; }
+    .email-btn:hover { background:#0090C5; }
     .whatsapp-btn { background:#25d366; color:#fff; }
     .whatsapp-btn:hover { background:#1fb959; }
 
@@ -566,10 +564,10 @@
       background:#fff; border:1px solid #e6e8ec; border-radius:12px; padding:22px;
       display:flex; flex-direction:column; gap:10px; cursor:pointer; transition:.2s;
     }
-    .pick-card:hover { transform:translateY(-4px); box-shadow:0 10px 24px rgba(72,120,199,0.15); border-color:#4878c7; }
+    .pick-card:hover { transform:translateY(-4px); box-shadow:0 10px 24px rgba(0, 175, 239,0.15); border-color:#00AFEF; }
     .pick-word { font-size:26px; font-weight:800; letter-spacing:1px; color:#1a1a1a; }
     .pick-desc { font-size:13.5px; color:#666; line-height:1.5; flex:1; }
-    .pick-price { font-size:14px; font-weight:700; color:#4878c7; }
+    .pick-price { font-size:14px; font-weight:700; color:#00AFEF; }
     @media (max-width:850px){ .picks-grid{ grid-template-columns:1fr 1fr; } }
     @media (max-width:560px){ .picks-grid{ grid-template-columns:1fr; } }
 
@@ -602,7 +600,7 @@
       margin-top:26px;
     }
     .real-work-cta a {
-      color:#4878c7;
+      color:#00AFEF;
       font-weight:700;
       font-size:14.5px;
       text-decoration:none;
@@ -618,7 +616,7 @@
     .specs-section { max-width:1100px; margin:60px auto; padding:0 20px; }
     .specs-table-wrap { overflow-x:auto; border:1px solid #e6e8ec; border-radius:10px; }
     .specs-table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; }
-    .specs-table thead th { background:#4878c7; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
+    .specs-table thead th { background:#00AFEF; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
     .specs-table tbody td { padding:14px 18px; border-top:1px solid #e6e8ec; color:#333; }
     .specs-table tbody tr:nth-child(even) { background:#f7f8fa; }
 
@@ -632,6 +630,7 @@
     <!-- ===== END SITE FOOTER ===== -->
 
     <script src="mobile-menu.js"></script>
+    <script src="formspree-send.js"></script>
     <script>
     // ============================================================
     // 3D LETTERS CONFIGURATOR
@@ -776,20 +775,9 @@
 
     function validateDetails() {
       let ok = true;
-      const name = document.getElementById("custName");
-      const email = document.getElementById("custEmail");
-      const phone = document.getElementById("custPhone");
       const address = document.getElementById("custAddress");
 
-      if (!name.value.trim()) {
-        name.closest(".field").classList.add("has-error");
-        document.getElementById("custNameError").textContent = "Please enter your name.";
-        ok = false;
-      }
-      if (!email.value.trim() && !phone.value.trim()) {
-        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
-        ok = false;
-      }
+      if (!LSA_validateContact()) ok = false;
       if (deliveryMethod === "delivery" && !address.value.trim()) {
         address.closest(".field").classList.add("has-error");
         document.getElementById("custAddressError").textContent = "Please enter a suburb or postcode for delivery.";
@@ -1210,7 +1198,7 @@
       document.getElementById("configurator").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    function sendQuote(channel) {
+    function sendQuote() {
       if (!validateDetails()) {
         document.querySelector(".details-box").scrollIntoView({ behavior: "smooth", block: "center" });
         return;
@@ -1253,14 +1241,12 @@
       ].filter(Boolean);
       const message = lines.join("\n");
 
-      if (channel === "email") {
-        const subject = encodeURIComponent("3D Letters Order \u2013 " + name + " \u2013 " + text);
-        const body = encodeURIComponent(message);
-        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
-      } else {
-        const waText = encodeURIComponent(message);
-        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
-      }
+      LSA_confirmAndSend(
+        "3D Letters Order \u2013 " + name + " \u2013 " + text,
+        message,
+        { name, email, phone },
+        "3D Cut Letters"
+      );
     }
 
     // ===== init =====

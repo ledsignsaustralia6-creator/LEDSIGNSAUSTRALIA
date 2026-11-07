@@ -330,28 +330,26 @@
                 </div>
 
                 <div class="field field-half">
-                    <div>
-                        <label for="custEmail">Email</label>
+                    <div class="field">
+                        <label for="custEmail">Email <span class="req">*</span></label>
                         <input type="email" id="custEmail" placeholder="you@email.com">
+                        <span class="field-error" id="custEmailError"></span>
                     </div>
-                    <div>
-                        <label for="custPhone">Phone</label>
-                        <input type="tel" id="custPhone" placeholder="04xx xxx xxx">
+                    <div class="field">
+                        <label for="custPhone">Phone <span class="req">*</span></label>
+                        <input type="tel" id="custPhone" placeholder="04xx xxx xxx" inputmode="tel" autocomplete="tel">
+                        <span class="field-error" id="custPhoneError"></span>
                     </div>
                 </div>
-                <span class="field-error" id="custContactError"></span>
-                <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+                <span class="field-hint">Name, email and phone are all required so we can get back to you.</span>
             </div>
 
             <div class="quote-actions">
-                <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry('email')">
-                    <i class="fa-solid fa-envelope"></i> Email My Enquiry
-                </button>
-                <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendEnquiry('whatsapp')">
-                    <i class="fa-brands fa-whatsapp"></i> WhatsApp My Enquiry
+                <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry()">
+                    <i class="fa-solid fa-paper-plane"></i> Send My Enquiry
                 </button>
             </div>
-            <p class="send-hint">We'll review your details and get back to you with a formal quote &mdash; no automatic pricing or payment is taken here.</p>
+            <p class="send-hint">You'll be asked to confirm before anything is sent. We'll review your details and get back to you with a formal quote &mdash; no automatic pricing or payment is taken here.</p>
 
         </div>
     </section>
@@ -469,7 +467,7 @@
 
     <style>
     /* ===== Footer ===== */
-    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .site-footer { background:#00AFEF; color:#fff; padding:40px 20px; margin-top:40px; }
     .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
     .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
     .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
@@ -503,26 +501,26 @@
     }
     .solution-card:hover {
       transform:translateY(-4px);
-      box-shadow:0 12px 28px rgba(72,120,199,0.18);
-      border-color:#4878c7;
+      box-shadow:0 12px 28px rgba(0, 175, 239,0.18);
+      border-color:#00AFEF;
     }
     .solution-icon {
       width:56px; height:56px; border-radius:50%;
-      background:linear-gradient(135deg,#4878c7,#2f5aa0);
+      background:linear-gradient(135deg,#00AFEF,#2f5aa0);
       color:#fff; display:flex; align-items:center; justify-content:center;
       font-size:24px;
     }
     .solution-card h3 { font-size:19px; color:#1a1a1a; margin:0; }
     .solution-card p { font-size:14px; color:#666; line-height:1.55; margin:0; flex:1; }
     .solution-card-actions { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:4px; }
-    .solution-link { font-size:13.5px; font-weight:700; color:#4878c7; display:inline-flex; align-items:center; gap:6px; }
+    .solution-link { font-size:13.5px; font-weight:700; color:#00AFEF; display:inline-flex; align-items:center; gap:6px; }
     .solution-link i { font-size:12px; transition:transform .15s; }
     .solution-card:hover .solution-link i { transform:translateX(3px); }
     .solution-photos-btn {
-      border:1px solid #d7dbe0; background:#fff; color:#4878c7; font-size:12.5px; font-weight:700;
+      border:1px solid #d7dbe0; background:#fff; color:#00AFEF; font-size:12.5px; font-weight:700;
       padding:6px 12px; border-radius:16px; cursor:pointer; transition:.15s; white-space:nowrap;
     }
-    .solution-photos-btn:hover { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .solution-photos-btn:hover { background:#00AFEF; color:#fff; border-color:#00AFEF; }
 
     @media (max-width:900px) { .solutions-grid { grid-template-columns:repeat(2,1fr); } }
     @media (max-width:600px) { .solutions-grid { grid-template-columns:1fr; } }
@@ -534,7 +532,7 @@
       border:1px solid #d7dbe0; background:#fff; color:#333; font-size:13.5px; font-weight:700;
       padding:9px 18px; border-radius:20px; cursor:pointer; transition:.15s;
     }
-    .gallery-tab-btn.active, .gallery-tab-btn:hover { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .gallery-tab-btn.active, .gallery-tab-btn:hover { background:#00AFEF; color:#fff; border-color:#00AFEF; }
     .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
     .gallery-tile {
       position:relative; aspect-ratio:1/1; border-radius:10px; overflow:hidden;
@@ -576,7 +574,7 @@
     .specs-section { max-width:1100px; margin:60px auto; padding:0 20px; }
     .specs-table-wrap { overflow-x:auto; border:1px solid #e6e8ec; border-radius:10px; }
     .specs-table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; }
-    .specs-table thead th { background:#4878c7; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
+    .specs-table thead th { background:#00AFEF; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
     .specs-table tbody td { padding:14px 18px; border-top:1px solid #e6e8ec; color:#333; }
     .specs-table tbody tr:nth-child(even) { background:#f7f8fa; }
 
@@ -592,7 +590,7 @@
       display:flex; align-items:center; gap:10px;
       padding-bottom:10px; border-bottom:1px solid #e0e3e8;
     }
-    .form-section h3 i { color:#4878c7; font-size:15px; }
+    .form-section h3 i { color:#00AFEF; font-size:15px; }
 
     .field label { display:block; font-size:13.5px; font-weight:700; color:#333; margin-bottom:6px; }
     .field input[type=text], .field input[type=number], .field input[type=email],
@@ -601,7 +599,7 @@
       font-size:15px; background:#fff; color:#1a1a1a; font-family:inherit;
     }
     .field textarea { resize:vertical; min-height:60px; }
-    .field input:focus, .field select:focus, .field textarea:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field input:focus, .field select:focus, .field textarea:focus { outline:2px solid #00AFEF; outline-offset:1px; }
     .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
     .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     .req { color:#c8202f; }
@@ -623,8 +621,8 @@
       font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
       justify-content:center; gap:8px; transition:.15s;
     }
-    .email-btn { background:#4878c7; color:#fff; }
-    .email-btn:hover { background:#3a63a8; }
+    .email-btn { background:#00AFEF; color:#fff; }
+    .email-btn:hover { background:#0090C5; }
     .whatsapp-btn { background:#25d366; color:#fff; }
     .whatsapp-btn:hover { background:#1fb959; }
     .send-hint { font-size:12px; color:#888; text-align:center; margin:0; }
@@ -637,7 +635,7 @@
       text-align:center;
     }
     .step-number {
-      width:38px; height:38px; border-radius:50%; background:#4878c7; color:#fff;
+      width:38px; height:38px; border-radius:50%; background:#00AFEF; color:#fff;
       display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px;
       margin:0 auto 14px;
     }
@@ -660,6 +658,7 @@
     <!-- ===== END SITE FOOTER ===== -->
 
     <script src="mobile-menu.js"></script>
+    <script src="formspree-send.js"></script>
     <script>
     // ============================================================
     // SOLUTIONS GRID DATA
@@ -875,24 +874,13 @@
     function validateForm() {
       let ok = true;
       const illumType = document.getElementById("illumType");
-      const name = document.getElementById("custName");
-      const email = document.getElementById("custEmail");
-      const phone = document.getElementById("custPhone");
 
       if (!illumType.value) {
         illumType.closest(".field").classList.add("has-error");
         document.getElementById("illumTypeError").textContent = "Please choose an illumination type (or \u201cNot sure yet\u201d).";
         ok = false;
       }
-      if (!name.value.trim()) {
-        name.closest(".field").classList.add("has-error");
-        document.getElementById("custNameError").textContent = "Please enter your name.";
-        ok = false;
-      }
-      if (!email.value.trim() && !phone.value.trim()) {
-        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
-        ok = false;
-      }
+      if (!LSA_validateContact()) ok = false;
       return ok;
     }
 
@@ -908,7 +896,7 @@
     // ============================================================
     // SEND ENQUIRY
     // ============================================================
-    function sendEnquiry(channel) {
+    function sendEnquiry() {
       if (!validateForm()) {
         document.querySelector(".enquiry-card").scrollIntoView({ behavior: "smooth", block: "center" });
         return;
@@ -962,14 +950,12 @@
       ].filter(Boolean);
       const message = lines.join("\n");
 
-      if (channel === "email") {
-        const subject = encodeURIComponent("3D Illuminated Letters Enquiry \u2013 " + name);
-        const body = encodeURIComponent(message);
-        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
-      } else {
-        const waText = encodeURIComponent(message);
-        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
-      }
+      LSA_confirmAndSend(
+        "3D Illuminated Letters Enquiry \u2013 " + name,
+        message,
+        { name, email, phone },
+        "3D Illuminated Letters"
+      );
     }
 
     // ===== init =====

@@ -204,17 +204,18 @@
                     </div>
 
                     <div class="field field-half">
-                        <div>
-                            <label for="custEmail">Email</label>
+                        <div class="field">
+                            <label for="custEmail">Email <span class="req">*</span></label>
                             <input type="email" id="custEmail" placeholder="you@email.com" oninput="clearFieldError(this)">
+                            <span class="field-error" id="custEmailError"></span>
                         </div>
-                        <div>
-                            <label for="custPhone">Phone</label>
-                            <input type="tel" id="custPhone" placeholder="04xx xxx xxx" oninput="clearFieldError(this)">
+                        <div class="field">
+                            <label for="custPhone">Phone <span class="req">*</span></label>
+                            <input type="tel" id="custPhone" placeholder="04xx xxx xxx" inputmode="tel" autocomplete="tel" oninput="clearFieldError(this)">
+                            <span class="field-error" id="custPhoneError"></span>
                         </div>
                     </div>
-                    <span class="field-error" id="custContactError"></span>
-                    <span class="field-hint">Enter at least one &mdash; email or phone &mdash; so we can get back to you.</span>
+                    <span class="field-hint">Name, email and phone are all required so we can get back to you.</span>
 
                     <div class="field">
                         <label>How would you like your order?</label>
@@ -238,14 +239,11 @@
                 </div>
 
                 <div class="quote-actions">
-                    <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry('email')">
-                        <i class="fa-solid fa-envelope"></i> Email My Enquiry
-                    </button>
-                    <button type="button" class="quote-action-btn whatsapp-btn" onclick="sendEnquiry('whatsapp')">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp My Enquiry
+                    <button type="button" class="quote-action-btn email-btn" onclick="sendEnquiry()">
+                        <i class="fa-solid fa-paper-plane"></i> Send My Enquiry
                     </button>
                 </div>
-                <p class="send-hint">This sends your preferences and contact details straight to us. We'll follow up with a free mock-up, material advice and a formal quote &mdash; no payment or commitment required.</p>
+                <p class="send-hint">You'll be asked to confirm before anything is sent. We'll follow up with a free mock-up, material advice and a formal quote &mdash; no payment or commitment required.</p>
 
             </div>
         </div>
@@ -367,7 +365,7 @@
 
     <style>
     /* ===== Footer ===== */
-    .site-footer { background:#4878c7; color:#fff; padding:40px 20px; margin-top:40px; }
+    .site-footer { background:#00AFEF; color:#fff; padding:40px 20px; margin-top:40px; }
     .footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
     .footer-contact h3 { margin-bottom:20px; font-size:34px; font-weight:800; letter-spacing:1px; }
     .footer-item { display:flex; align-items:center; gap:12px; margin-bottom:14px; font-size:18px; }
@@ -397,13 +395,13 @@
     }
     .inspo-card img { width:100%; height:100%; object-fit:cover; display:block; }
     .inspo-card:hover { transform:translateY(-3px); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
-    .inspo-card.selected { border-color:#4878c7; }
+    .inspo-card.selected { border-color:#00AFEF; }
     .inspo-check {
       position:absolute; top:8px; right:8px; width:26px; height:26px; border-radius:50%;
       background:#fff; border:2px solid #d7dbe0; display:flex; align-items:center; justify-content:center;
       font-size:13px; color:transparent; transition:.15s;
     }
-    .inspo-card.selected .inspo-check { background:#4878c7; border-color:#4878c7; color:#fff; }
+    .inspo-card.selected .inspo-check { background:#00AFEF; border-color:#00AFEF; color:#fff; }
     .inspo-label {
       position:absolute; bottom:0; left:0; right:0; padding:6px 10px 7px;
       background:linear-gradient(0deg, rgba(0,0,0,0.65), transparent);
@@ -432,7 +430,7 @@
     }
     .form-section-title:first-child { margin-top:0; padding-top:0; border-top:none; }
     .form-step {
-      width:26px; height:26px; border-radius:50%; background:#4878c7; color:#fff;
+      width:26px; height:26px; border-radius:50%; background:#00AFEF; color:#fff;
       font-size:13px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
     }
 
@@ -441,7 +439,7 @@
       width:100%; padding:10px 12px; border:1px solid #d7dbe0; border-radius:8px;
       font-size:15px; background:#fff; color:#1a1a1a;
     }
-    .field input:focus, .field select:focus { outline:2px solid #4878c7; outline-offset:1px; }
+    .field input:focus, .field select:focus { outline:2px solid #00AFEF; outline-offset:1px; }
     .field-hint { display:block; font-size:12px; color:#888; margin-top:4px; }
     .field-half { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 
@@ -450,7 +448,7 @@
       border:1px solid #d7dbe0; background:#fff; color:#333; font-size:13.5px;
       padding:8px 14px; border-radius:20px; cursor:pointer; transition:.15s;
     }
-    .pill-btn.active { background:#4878c7; color:#fff; border-color:#4878c7; }
+    .pill-btn.active { background:#00AFEF; color:#fff; border-color:#00AFEF; }
 
     .swatch-group { display:flex; flex-wrap:wrap; gap:10px; }
     .swatch-btn {
@@ -458,13 +456,13 @@
       border:2px solid transparent; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15);
       position:relative;
     }
-    .swatch-btn.active { border-color:#4878c7; box-shadow:0 0 0 3px rgba(72,120,199,0.25); }
+    .swatch-btn.active { border-color:#00AFEF; box-shadow:0 0 0 3px rgba(0, 175, 239,0.25); }
 
     .info-box {
       display:flex; gap:12px; align-items:flex-start; background:#eef3fc; border:1px solid #cfdcf3;
       border-radius:10px; padding:14px 16px; font-size:13.5px; color:#2c476e; line-height:1.6;
     }
-    .info-box i { margin-top:2px; color:#4878c7; }
+    .info-box i { margin-top:2px; color:#00AFEF; }
     .info-box p { margin:0; }
 
     .details-box { background:#fff; border:1px solid #e6e8ec; border-radius:10px; padding:18px; display:flex; flex-direction:column; gap:14px; }
@@ -479,8 +477,8 @@
       font-size:15px; font-weight:700; cursor:pointer; display:flex; align-items:center;
       justify-content:center; gap:8px; transition:.15s;
     }
-    .email-btn { background:#4878c7; color:#fff; }
-    .email-btn:hover { background:#3a63a8; }
+    .email-btn { background:#00AFEF; color:#fff; }
+    .email-btn:hover { background:#0090C5; }
     .whatsapp-btn { background:#25d366; color:#fff; }
     .whatsapp-btn:hover { background:#1fb959; }
 
@@ -488,7 +486,7 @@
     .specs-section { max-width:1100px; margin:60px auto; padding:0 20px; }
     .specs-table-wrap { overflow-x:auto; border:1px solid #e6e8ec; border-radius:10px; }
     .specs-table { width:100%; border-collapse:collapse; min-width:640px; font-size:15px; }
-    .specs-table thead th { background:#4878c7; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
+    .specs-table thead th { background:#00AFEF; color:#fff; text-align:left; padding:14px 18px; font-weight:700; }
     .specs-table tbody td { padding:14px 18px; border-top:1px solid #e6e8ec; color:#333; }
     .specs-table tbody tr:nth-child(even) { background:#f7f8fa; }
 
@@ -502,6 +500,7 @@
     <!-- ===== END SITE FOOTER ===== -->
 
     <script src="mobile-menu.js"></script>
+    <script src="formspree-send.js"></script>
     <script>
     // ============================================================
     // HOME PLATES ENQUIRY FORM
@@ -590,20 +589,9 @@
 
     function validateDetails() {
       let ok = true;
-      const name = document.getElementById("custName");
-      const email = document.getElementById("custEmail");
-      const phone = document.getElementById("custPhone");
       const address = document.getElementById("custAddress");
 
-      if (!name.value.trim()) {
-        name.closest(".field").classList.add("has-error");
-        document.getElementById("custNameError").textContent = "Please enter your name.";
-        ok = false;
-      }
-      if (!email.value.trim() && !phone.value.trim()) {
-        document.getElementById("custContactError").textContent = "Please add an email or phone number.";
-        ok = false;
-      }
+      if (!LSA_validateContact()) ok = false;
       if (deliveryMethod === "delivery" && !address.value.trim()) {
         address.closest(".field").classList.add("has-error");
         document.getElementById("custAddressError").textContent = "Please enter a suburb or postcode.";
@@ -715,7 +703,7 @@
       });
     }
 
-    function sendEnquiry(channel) {
+    function sendEnquiry() {
       if (!validateDetails()) {
         document.querySelector(".details-box").scrollIntoView({ behavior: "smooth", block: "center" });
         return;
@@ -760,14 +748,12 @@
       ].filter(Boolean);
       const message = lines.join("\n");
 
-      if (channel === "email") {
-        const subject = encodeURIComponent("Home Plate Enquiry \u2013 " + name + " \u2013 " + text);
-        const body = encodeURIComponent(message);
-        window.location.href = `mailto:info@ledsignsaustralia.com.au?subject=${subject}&body=${body}`;
-      } else {
-        const waText = encodeURIComponent(message);
-        window.open(`https://wa.me/61481308955?text=${waText}`, "_blank");
-      }
+      LSA_confirmAndSend(
+        "Home Plate Enquiry \u2013 " + name + " \u2013 " + text,
+        message,
+        { name, email, phone },
+        "Home Plates"
+      );
     }
 
     // ===== init =====
