@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Projects - LED SIGNS AUSTRALIA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="See recent signage projects by LED Signs Australia, including 3D illuminated letters, LED signs, shopfront and pylon signs, and fabric signs.">
+    <meta name="description" content="See recent signage projects by LED Signs Australia, including 3D illuminated letters, lightbox signs, window signs, A-frame signs, shopfront and pylon signs, and fabric signs.">
     <link rel="canonical" href="https://ledsignsaustralia.com.au/projects.html">
     <meta property="og:title" content="Projects - LED SIGNS AUSTRALIA">
-    <meta property="og:description" content="See recent signage projects by LED Signs Australia, including 3D illuminated letters, LED signs, shopfront and pylon signs, and fabric signs.">
+    <meta property="og:description" content="See recent signage projects by LED Signs Australia, including 3D illuminated letters, lightbox signs, window signs, A-frame signs, shopfront and pylon signs, and fabric signs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ledsignsaustralia.com.au/projects.html">
     <meta property="og:site_name" content="LED Signs Australia">
@@ -90,10 +90,26 @@
             </div>
         </div>
 
+        <div class="project-item" onclick="openGallery('lightbox')">
+            <img src="images/lightbox-1.1.jpg" alt="light box panel for THE CRESTFOOD CAFE">
+            <div class="project-info">
+                <h3>Lightbox Signs</h3>
+                <p class="tile-hint">Click to view all photos</p>
+            </div>
+        </div>
+
         <div class="project-item" onclick="openGallery('shopfront')">
             <img src="images/shopfront-1.jpg" alt="Custom shopfront sign for a local shop">
             <div class="project-info">
                 <h3>Shop Front Sign</h3>
+                <p class="tile-hint">Click to view all photos</p>
+            </div>
+        </div>
+
+         <div class="project-item" onclick="openGallery('windowsign')">
+            <img src="images/window-sign-1.jpg" alt="Custom window signage project by LED Signs Australia">
+            <div class="project-info">
+                <h3>Window Signs</h3>
                 <p class="tile-hint">Click to view all photos</p>
             </div>
         </div>
@@ -187,6 +203,31 @@
           </div>
         </div>
 
+        <div class="gallery-panel" id="gallery-lightbox" data-title="Lightbox Signs">
+          <div class="gallery-modal-grid">
+            <!-- Replace the sample filename, alt text and caption when adding each project photo. -->
+            <figure class="gallery-photo-wrap" style="--zoom-img:url('images/lightbox-1.jpg')">
+              <img src="images/lightbox-1.jpg" alt="light box panel for the indian street wyoming,NSW restaurant" loading="lazy" onerror="photoMissing(this)">
+              <figcaption>THE INDIAN STREET – WYOMING, NSW</figcaption>
+            </figure>
+            <figure class="gallery-photo-wrap" style="--zoom-img:url('images/lightbox-1.1.jpg')">
+              <img src="images/lightbox-1.1.jpg" alt="light box panel for THE CRESTFOOD CAFE" loading="lazy" onerror="photoMissing(this)">
+              <figcaption>THE CRESTFOOD – WEST WALLSEND, NSW</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="gallery-panel" id="gallery-windowsign" data-title="Window Signs">
+          <div class="gallery-modal-grid">
+            <!-- Replace the sample filename, alt text and caption when adding each project photo. -->
+            <figure class="gallery-photo-wrap" style="--zoom-img:url('images/window-sign-1.jpg')">
+              <img src="images/window-sign-1.jpg" alt="Custom window sign project at Crestfood Holmesville,NSW" loading="lazy" onerror="photoMissing(this)">
+              <figcaption>Crestfood Holmesville,NSW</figcaption>
+            </figure>
+          </div>
+        </div>
+
+
         <div class="gallery-panel" id="gallery-shopfront" data-title="Shop Front Signs">
           <div class="gallery-modal-grid">
             <figure class="gallery-photo-wrap" style="--zoom-img:url('images/shopfront-1.jpg')">
@@ -217,6 +258,10 @@
               <img src="images/shopfront-7.jpg" alt="Outdoor store fascia signage for Crispy Lettuce,Gosford, NSW" loading="lazy" onerror="photoMissing(this)">
               <figcaption>Crispy Lettuce – Gosford, NSW</figcaption>
             </figure>
+            <figure class="gallery-photo-wrap" style="--zoom-img:url('images/shopfront-8.jpg')">
+              <img src="images/shopfront-8.jpg" alt="Gosford Laundry Lounge shopfront fascia sign by LED Signs Australia, Gosford NSW." loading="lazy" onerror="photoMissing(this)">
+              <figcaption>Gosford Laundry Launge – Wyoming, NSW</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -239,6 +284,10 @@
 
         <div class="gallery-panel" id="gallery-pylon" data-title="Pylon Signs">
           <div class="gallery-modal-grid">
+             <figure class="gallery-photo-wrap" style="--zoom-img:url('images/pylon-3.jpg')">
+              <img src="images/pylon-3.jpg" alt="Outdoor pylon sign for Cherry Pie Cafe with illuminated header, digital LED display and open sign, by LED Signs Australia" loading="lazy" onerror="photoMissing(this)">
+              <figcaption>Cherry Pie Café Kebab & Burger– Coolongolook NSW</figcaption>
+            </figure>
             <figure class="gallery-photo-wrap" style="--zoom-img:url('images/work3.png')">
               <img src="images/work3.png" alt="Digital LED price display sign for service station, Boolaroo NSW – front view" loading="lazy" onerror="photoMissing(this)">
               <figcaption>LED SIGNS AUSTRALIA – Boolaroo, NSW</figcaption>
@@ -357,7 +406,7 @@
       margin: 24px auto 4px;
       max-width: 320px;
       text-align: center;
-      background: #4878c7;
+      background: #00AFEF;
       color: #fff;
       font-weight: 700;
       font-size: 15px;
@@ -367,7 +416,7 @@
       transition: background 0.15s ease;
     }
     .gallery-cta-btn:hover {
-      background: #3a63a8;
+      background: #0090C5;
     }
     .gallery-modal-grid {
       display: grid;
@@ -695,7 +744,7 @@ panel.classList.toggle('active', i === index);
 
     <style>
     .site-footer {
-      background: #4878c7;
+      background: #00AFEF;
       color: #ffffff;
       padding: 40px 20px;
       margin-top: 40px;
