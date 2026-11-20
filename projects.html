@@ -362,6 +362,13 @@
       </div>
     </div>
 
+
+    <!-- ===== ZOOM LIGHTBOX (opens when a gallery photo is clicked / tapped) ===== -->
+    <div class="zoom-lightbox" id="zoomLightbox" onclick="closeZoom()">
+      <span class="zoom-lightbox-close">&times;</span>
+      <img id="zoomLightboxImg" src="" alt="">
+    </div>
+
     <style>
     .tile-hint {
       font-size: 12px;
@@ -509,6 +516,34 @@
       border-radius: 8px;
       border: 1px solid #eee;
     }
+
+    /* ===== Click / tap zoom (works on phones, tablets and desktop) ===== */
+    .zoom-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: rgba(0,0,0,0.9);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+    }
+    .zoom-lightbox.active { display: flex; }
+    .zoom-lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .zoom-lightbox-close {
+      position: absolute;
+      top: 12px; right: 20px;
+      color: #fff;
+      font-size: 38px;
+      line-height: 1;
+    }
     </style>
 
 
@@ -534,6 +569,26 @@
       }
       document.getElementById("galleryModal").classList.add("active");
     }
+
+
+    // Click / tap any gallery photo to zoom it (hover preview only works with a mouse)
+    document.addEventListener("click", function (e) {
+      var img = e.target.closest ? e.target.closest(".gallery-modal-grid img") : null;
+      if (!img) return;
+      var box = document.getElementById("zoomLightboxImg");
+      box.src = img.currentSrc || img.src;
+      box.alt = img.alt;
+      document.getElementById("zoomLightbox").classList.add("active");
+    });
+    function closeZoom() {
+      document.getElementById("zoomLightbox").classList.remove("active");
+    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        var z = document.getElementById("zoomLightbox");
+        if (z.classList.contains("active")) closeZoom(); else closeGallery();
+      }
+    });
 
     function closeGallery() {
       document.getElementById("galleryModal").classList.remove("active");
